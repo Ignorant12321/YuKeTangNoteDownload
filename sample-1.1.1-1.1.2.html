@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="auto"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>科技信息检索与论文写作专题讲座</title>
+<style>
+:root{
+  --fg:#23272e;--fg2:#5f6b76;--accent:#0f6dad;--accent-soft:#dcecf7;
+  --rule:#e6e9ed;--soft:#f7f9fb;--page:#eef1f5;--panel:#fff;--pill-fg:#fff;
+  --serif:"Songti SC","STSong","SimSun",Georgia,"Times New Roman",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--fg:#d4d9df;--fg2:#98a2ad;--accent:#5aaee0;--accent-soft:#1d3a52;
+    --rule:#2b323a;--soft:#1e242b;--page:#14181d;--panel:#1a1f25;--pill-fg:#14181d}
+}
+html[data-theme=light]{--fg:#23272e;--fg2:#5f6b76;--accent:#0f6dad;--accent-soft:#dcecf7;
+  --rule:#e6e9ed;--soft:#f7f9fb;--page:#eef1f5;--panel:#fff;--pill-fg:#fff}
+html[data-theme=dark]{--fg:#d4d9df;--fg2:#98a2ad;--accent:#5aaee0;--accent-soft:#1d3a52;
+  --rule:#2b323a;--soft:#1e242b;--page:#14181d;--panel:#1a1f25;--pill-fg:#14181d}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--page);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.778;padding-left:272px}
+.ykt-doc{max-width:880px;margin:28px auto;padding:60px 68px 72px;background:var(--panel);
+  border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,.05),0 8px 28px rgba(0,0,0,.06)}
+#ykt-toc{position:fixed;left:0;top:0;width:272px;height:100vh;overflow-y:auto;padding:16px 10px 48px;
+  background:var(--panel);border-right:1px solid var(--rule);font-size:12.5px;line-height:1.55;z-index:5}
+#ykt-toc a{color:var(--fg2);text-decoration:none;display:block;padding:2px 6px;border-radius:4px}
+#ykt-toc a:hover{color:var(--accent);background:var(--soft)}
+#ykt-toc a.on{color:var(--accent);background:var(--accent-soft);font-weight:600}
+#ykt-toc summary{cursor:pointer;list-style:none}
+#ykt-toc summary::-webkit-details-marker{display:none}
+#ykt-toc summary::before{content:"▸";display:inline-block;width:12px;color:var(--fg2);transition:transform .15s}
+#ykt-toc details[open]>summary::before{transform:rotate(90deg)}
+#ykt-toc summary>a{display:inline-block;font-weight:600;color:var(--fg);padding:3px 6px}
+#ykt-toc ul{margin:2px 0 6px;padding-left:20px;list-style:none;border-left:1px solid var(--rule)}
+#ykt-toc li{margin:1px 0}
+#ykt-toc-top,.ykt-toc-top{margin:6px 0}
+#ykt-theme-btn{position:fixed;right:16px;top:16px;z-index:6;height:28px;padding:0 12px;border:1px solid var(--rule);
+  border-radius:14px;background:var(--panel);color:var(--fg2);font:12px/1 var(--sans);cursor:pointer}
+#ykt-theme-btn:hover{color:var(--accent);border-color:var(--accent)}
+#ykt-toc-btn{display:none;position:fixed;left:12px;top:12px;z-index:6;height:28px;padding:0 12px;
+  border:1px solid var(--rule);border-radius:14px;background:var(--panel);color:var(--fg2);font:12px/1 var(--sans);cursor:pointer}
+@media (max-width:1100px){
+  body{padding-left:0}
+  #ykt-toc{transform:translateX(-100%);transition:transform .2s;box-shadow:0 0 30px rgba(0,0,0,.25)}
+  body.toc-open #ykt-toc{transform:none}
+  #ykt-toc-btn{display:block}
+}
+.ykt-doc>*:first-child{margin-top:0}
+.ykt-doc h1,.ykt-doc h2,.ykt-doc h3,.ykt-doc h4,.ykt-doc h5{font-family:var(--serif);font-weight:700;
+  line-height:1.38;margin:1.9em 0 .85em;letter-spacing:.01em;color:var(--fg)}
+.ykt-doc h1{font-size:2em;text-align:center;margin-top:0;padding-bottom:.4em;border-bottom:3px double var(--rule)}
+.ykt-doc h1+h1,.ykt-doc blockquote+h1{margin-top:2.4em}
+.ykt-doc h2{font-size:1.5em;padding:.15em 0 .3em .55em;border-left:5px solid var(--accent);
+  border-bottom:1px solid var(--rule);background:linear-gradient(90deg,var(--accent-soft) 0,transparent 42%)}
+.ykt-doc h3{font-size:1.28em;padding-left:.5em;border-left:3px solid var(--accent-soft)}
+.ykt-doc h4{font-size:1.12em}
+.ykt-doc h4::before{content:"";display:inline-block;width:.42em;height:.42em;margin-right:.5em;
+  vertical-align:.1em;background:var(--accent);transform:rotate(45deg)}
+.ykt-doc h5{font-size:1em;color:var(--accent);padding-bottom:.25em;border-bottom:1px dashed var(--rule)}
+.ykt-doc h6,.ykt-doc h5.ts,.ykt-doc h4.ts{font-family:var(--sans);font-weight:600;font-size:.9em;
+  color:var(--pill-fg);background:var(--accent);display:inline-block;padding:.12em .6em;border-radius:3px;margin:.9em 0 -.3em}
+.ykt-doc p{margin:.75em 0;text-align:justify}
+.ykt-doc blockquote{margin:1em 0;padding:.5em 1em;background:var(--soft);border-left:4px solid var(--accent-soft);
+  color:var(--fg2);font-size:.94em;border-radius:0 3px 3px 0}
+.ykt-doc a{color:var(--accent);text-decoration:none}
+.ykt-doc a:hover{text-decoration:underline}
+.ykt-jump{border-bottom:1px dotted var(--accent)}
+.ykt-jump::after{content:"\21C4";font-size:.72em;margin-left:.4em;color:var(--fg2)}
+h1,h2,h3,h4,h5,h6{scroll-margin-top:18px}
+@media print{
+  body{background:#fff;padding-left:0}
+  #ykt-toc,#ykt-theme-btn,#ykt-toc-btn{display:none}
+  .ykt-doc{max-width:none;margin:0;padding:0;box-shadow:none}
+  .ykt-jump::after{content:""}
+  h2,h3,h4{page-break-after:avoid}
+}</style>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem('ykt-note-theme')||'auto'}catch(e){}</script>
+</head><body>
+<button id="ykt-toc-btn">☰ 目录</button>
+<button id="ykt-theme-btn" title="切换主题"></button>
+<nav id="ykt-toc"><details open><summary><a href="#s-1">第1章 概论及信息检索基础知识</a></summary><ul><li><span><a href="#s-2">1.1研究生与信息素养</a></span><ul><li><a href="#s-3">1.1.1.研究生与信息素养</a></li><li><a href="#s-5">1.1.2.信息素养是研究生学术素养的重要组成部分</a></li></ul></li></ul></details><div class="ykt-toc-top"><a href="#s-4">附录</a></div></nav>
+<article class="ykt-doc">
+<h1>科技信息检索与论文写作专题讲座</h1>
+<blockquote>雨课堂 · 提取 2 个小节 · 2026/11/4 21:31:09</blockquote>
+<h2 id="s-1">第1章 概论及信息检索基础知识</h2>
+<h3 id="s-2">1.1研究生与信息素养</h3>
+<h4 id="s-3">1.1.1.研究生与信息素养</h4>
+<h5 id="k-90178736-0"><a class="ykt-jump" href="#a-90178736-0">信息素养：应对信息时代挑战的关键</a></h5>
+<blockquote>00:18 – 01:51</blockquote>
+<p>信息素养是指个体有效识别、评估、获取、使用以及管理信息的能力。在当前网络技术快速发展的信息时代背景下，信息素养变得尤为重要。它不仅关系到个人的学习和生活，也是解决信息过载问题、提高信息利用效率的关键。信息素养的概念由保罗泽考斯基于1974年提出，随着信息技术的不断进步和信息量的剧增，其重要性日益受到关注。国际上普遍采纳的关于信息素养的定义，强调了其对于学术研究和学习的必要性。</p>
+<h5 id="k-90178736-1"><a class="ykt-jump" href="#a-90178736-1">提升信息素养：关键要素与应用</a></h5>
+<blockquote>01:52 – 03:56</blockquote>
+<p>信息素养是一种涵盖信息意识、信息知识、信息能力和信息道德的综合能力，对于快速获取有价值的信息至关重要。它不仅涉及反思性地发现信息、理解和评价信息的来源与价值，还包括利用信息创造新知识以及在尊重法律和社会规范的前提下参与学习和交流社群。信息素养的核心在于能够有效地识别和利用信息来解决实际问题，并在共享知识的过程中保持道德标准。</p>
+<h4 id="s-5">1.1.2.信息素养是研究生学术素养的重要组成部分</h4>
+<h5 id="k-90178737-0"><a class="ykt-jump" href="#a-90178737-0">信息素养在学术研究中的重要性</a></h5>
+<blockquote>01:07 – 02:57</blockquote>
+<p>良好的信息素养对于开展学术研究至关重要，它涵盖了对研究现状的了解、跟踪领域前沿、撰写文献综述与开题报告、发表研究成果等方面的能力。信息素养不仅包括高效查找和管理文献信息的技能，还包括遵守信息道德、正确引用他人观点与成果的知识。每个科研阶段均需依赖信息，且科学研究的继承性和创新性强调了充分占有各类信息的重要性。因此，信息素养应成为研究生学术素养的核心组成部分。</p>
+<h1 id="s-4">附录</h1>
+<h2>第1章 概论及信息检索基础知识</h2>
+<h3>1.1研究生与信息素养</h3>
+<h4>1.1.1.研究生与信息素养</h4>
+<h5 id="a-90178736-0"><a class="ykt-jump" href="#k-90178736-0">信息素养：应对信息时代挑战的关键</a></h5>
+<h6 class="ts">00:18</h6>
+<p>同学们，大家好，欢迎来到科技信息检索与论文写作课堂，我是本次课的主讲老师周小兰。今天我们学习一下什么是信息素养。我们知道当今时代是一个网络技术飞速发展的信息时代。我们在享受网络给我们带来丰富信息便利的同时，也面临着信息爆炸带来的严重困扰。我们每个人每天都要进行大量的信息搜索，信息搜索能力是信息素养的重要组成部分。那么，什么是信息素养？信息素养和我们研究生的学习、生活有什么关系呢？</p>
+<h6 class="ts">01:11</h6>
+<p>信息素养的定义及内涵对信息素养的重视正是来自于信息时代信息技术的快速发展和信息爆炸所带来的挑战。这一概念最早是美国信息产业协会主席保罗泽考斯基1974年提出。多年来，信息素养的定义不断完善，现在国际上普遍采用美国大学与研究图书馆协会association of college and research libraries，简称ACRL给出的定义。</p>
+<h5 id="a-90178736-1"><a class="ykt-jump" href="#k-90178736-1">提升信息素养：关键要素与应用</a></h5>
+<h6 class="ts">01:52</h6>
+<p>信息素养是一种综合能力，包括，一对信息的反思性发现。二理解信息的产生和评价。三利用信息创造新知识。四在遵守社会公德的情况下加入学习及交流社区信息素养的定义文字并不多，但它的内涵非常丰富。对信息的反思性发现是指当有信息需求时，自己能够意识到，能快速找到信息并筛选出对自己有价值的信息理解。信息的产生和评价是指能认识信息的产生原理和过程，并且掌握信息评价的方法。</p>
+<h6 class="ts">02:49</h6>
+<p>利用信息创造新知识，是指将新得到的信息融入已有的知识结构，产生新知识，解决实际问题，在遵守社会公德的情况下加入学习及交流社区，是指合理合法的使用信息分享自己的研究成果与知识，不传播虚假信息。从信息素养的定义和内涵中可以看出，信息素养至少包括四个要素，信息意识、信息知识、信息能力和信息道德。其中，信息意识是先导，信息知识是基础，信息能力是核心，信息道德是保障。而高水平的信息素养将有助于研究生同学在信息海洋中快速获取有价值的信息。祝你站得更高，看得更远。</p>
+<h4>1.1.2.信息素养是研究生学术素养的重要组成部分</h4>
+<h5 class="ts">00:18</h5>
+<p>同学们，大家好，继续我们的讲课。这次我们讲讲信息素养和研究生学术素养的关系。研究生是一个人正规学历的最后阶段学术学位。研究生的培养目标是科学接班人，其主要职责是进行科学研究。科学研究过程一般包括，一准备阶段，包括选题搜集和阅读资料，进行课题设计。2、进行阶段性，主要是做科学研究。3、总结阶段，列出科学研究工作总结、撰写和发表论文等。</p>
+<h5 id="a-90178737-0"><a class="ykt-jump" href="#k-90178737-0">信息素养在学术研究中的重要性</a></h5>
+<h6 class="ts">01:07</h6>
+<p>那么，在科研过程之中，我们都会面临着如何开展学术研究，这其中会涉及如何了解某个领域的研究现状，如何跟踪某个领域的前沿，如何撰写文献综述和开题报告，如何撰写和发表研究成果，如何正确引用别人的观点和研究成果等等。倘若我们不具备信息素养的相关知识和能力，那么当我们遇到上述问题时，则会显得无所适从。所以，良好的信息素养是开展学术研究的重要素养和能力。它可以帮助我们利用各种检索系统快速、准确、全面的找到对自己有价值的文献信息，利用各种文献管理软件有效地管理利用文献信息，还可以帮助我们以合乎信息道德的方式分享、传播成果信息。</p>
+<h6 class="ts">02:22</h6>
+<p>科学研究的每一阶段都离不开信息，科学研究的继承性和创新性也决定了科学研究必须充分地占有各类信息。这都要求我们必须具备较高的信息素养，即具有强烈的信息意识、熟练的信息技能、高尚的信息道德和开拓的创新精神。因此，信息素养是研究生学术素养的重要组成部分。</p>
+</article>
+<script>
+(function(){
+  var KEY='ykt-note-theme', root=document.documentElement, btn=document.getElementById('ykt-theme-btn');
+  var LABEL={auto:'自动',light:'浅色',dark:'深色'};
+  function get(){ return root.dataset.theme in LABEL ? root.dataset.theme : 'auto' }
+  function set(v){ root.dataset.theme=v; try{localStorage.setItem(KEY,v)}catch(e){} label() }
+  function label(){ btn.textContent=(get()==='auto'?'◐ ':'● ')+LABEL[get()] }
+  btn.onclick=function(){ var o=['auto','light','dark']; set(o[(o.indexOf(get())+1)%3]) }
+  label();
+
+  var tocBtn=document.getElementById('ykt-toc-btn');
+  tocBtn.onclick=function(){ document.body.classList.toggle('toc-open') };
+  document.getElementById('ykt-toc').addEventListener('click',function(e){
+    if(e.target.tagName==='A' && innerWidth<=1100) document.body.classList.remove('toc-open');
+  });
+
+  // 滚动高亮：找当前视口顶部之上最近的标题
+  var links={}, items=[];
+  document.querySelectorAll('#ykt-toc a[href^="#"]').forEach(function(a){
+    links[a.getAttribute('href').slice(1)]=a;
+  });
+  document.querySelectorAll('.ykt-doc h2[id],.ykt-doc h3[id],.ykt-doc h4[id],.ykt-doc h1[id]').forEach(function(h){
+    if(links[h.id]) items.push(h);
+  });
+  var cur=null;
+  function spy(){
+    var top=120, pick=null;
+    for(var i=0;i<items.length;i++){ if(items[i].getBoundingClientRect().top<=top) pick=items[i]; else break }
+    if(pick===cur) return;
+    if(cur) links[cur.id].classList.remove('on');
+    cur=pick;
+    if(cur){
+      links[cur.id].classList.add('on');
+      var d=links[cur.id].closest('details'); if(d) d.open=true;
+    }
+  }
+  addEventListener('scroll',spy,{passive:true}); addEventListener('resize',spy); spy();
+})();</script>
+</body></html>
