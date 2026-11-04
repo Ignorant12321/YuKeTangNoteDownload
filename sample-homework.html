@@ -1,0 +1,1646 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="auto"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>科技信息检索与论文写作专题讲座 · 习题</title>
+<style>
+:root{
+  --fg:#23272e;--fg2:#5f6b76;--accent:#0f6dad;--accent-soft:#dcecf7;--wrong:#c0392b;--ok:#1a7f37;
+  --rule:#e6e9ed;--soft:#f7f9fb;--page:#eef1f5;--panel:#fff;
+  --serif:"Songti SC","STSong","SimSun",Georgia,serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--fg:#d4d9df;--fg2:#98a2ad;--accent:#5aaee0;--accent-soft:#1d3a52;--wrong:#e57373;--ok:#3fb950;
+    --rule:#2b323a;--soft:#1e242b;--page:#14181d;--panel:#1a1f25}
+}
+html[data-theme=light]{--fg:#23272e;--fg2:#5f6b76;--accent:#0f6dad;--accent-soft:#dcecf7;--wrong:#c0392b;--ok:#1a7f37;
+  --rule:#e6e9ed;--soft:#f7f9fb;--page:#eef1f5;--panel:#fff}
+html[data-theme=dark]{--fg:#d4d9df;--fg2:#98a2ad;--accent:#5aaee0;--accent-soft:#1d3a52;--wrong:#e57373;--ok:#3fb950;
+  --rule:#2b323a;--soft:#1e242b;--page:#14181d;--panel:#1a1f25}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.778;padding-left:268px}
+.hw-doc{max-width:820px;margin:26px auto;padding:52px 60px 64px;background:var(--panel);border-radius:4px;
+  box-shadow:0 1px 3px rgba(0,0,0,.05),0 8px 28px rgba(0,0,0,.06)}
+.hw-doc>*:first-child{margin-top:0}
+h1,h2{font-family:var(--serif);color:var(--fg)}
+h1{font-size:2em;text-align:center;margin:0 0 .5em;padding-bottom:.35em;border-bottom:3px double var(--rule)}
+h2{font-size:1.4em;margin:2em 0 .8em;padding:.15em 0 .3em .55em;border-left:5px solid var(--accent);
+  border-bottom:1px solid var(--rule);background:linear-gradient(90deg,var(--accent-soft) 0,transparent 42%)}
+blockquote{margin:1em 0;padding:.5em 1em;background:var(--soft);border-left:4px solid var(--accent-soft);
+  color:var(--fg2);font-size:.92em;border-radius:0 3px 3px 0}
+.hw-q{margin:1.4em 0;padding:16px 18px;border:1px solid var(--rule);border-radius:6px;background:var(--panel)}
+.hw-q-head{display:flex;align-items:center;gap:9px;margin:0 0 .6em;font:600 14px/1.4 var(--sans);color:var(--fg2)}
+.hw-q-num{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;padding:0 6px;
+  border-radius:12px;background:var(--accent);color:#fff;font-size:13px}
+.hw-q-type{color:var(--accent);font-size:13px}
+.hw-q-score{margin-left:auto;font-size:12px;color:var(--fg2)}
+.hw-q-body{margin:.2em 0 .6em;text-align:justify}
+.hw-q-body img{max-width:100%}
+.hw-q-opts{margin:.4em 0;padding-left:1.6em;list-style:none}
+.hw-q-opts li{margin:.2em 0}
+.hw-q-opts li b{color:var(--accent);margin-right:.3em}
+.hw-q-ans{margin:.7em 0 0;padding-top:.5em;border-top:1px dashed var(--rule);font-size:.94em;color:var(--fg2)}
+.hw-q-ans-label{color:var(--fg2)}
+.hw-q-ans-list{margin:.3em 0 0;padding:0 0 0 1.9em;list-style:none}
+.hw-q-ans-list li{display:flex;gap:.45em;margin:.22em 0;line-height:1.6}
+.hw-key{flex:none;color:var(--ok);font-weight:700}
+.hw-key:empty{display:none}
+.hw-val{text-align:justify;color:var(--fg)}
+.hw-q-none{color:var(--fg2)}
+#hw-toc{position:fixed;left:0;top:0;width:268px;height:100vh;overflow-y:auto;padding:14px 8px 40px;background:var(--panel);
+  border-right:1px solid var(--rule);font-size:12.5px;line-height:1.5;z-index:5}
+.hw-toc-title{font-weight:600;color:var(--fg2);padding:0 8px 8px;display:flex;justify-content:space-between}
+.hw-toc-title i{font-style:normal;font-weight:400}
+#hw-toc summary{display:flex;align-items:center;gap:4px;cursor:pointer;list-style:none;padding:3px 4px;border-radius:5px}
+#hw-toc summary::-webkit-details-marker{display:none}
+#hw-toc summary::before{content:"▸";flex:none;width:11px;color:var(--fg2);font-size:10px;transition:transform .15s}
+#hw-toc details[open]>summary::before{transform:rotate(90deg)}
+#hw-toc summary>a{flex:1;font-weight:600;color:var(--fg);padding:2px 0}
+#hw-toc summary>i{color:var(--fg2);font-style:normal;font-size:11px;margin-right:4px}
+#hw-toc ul{margin:2px 0 6px;padding-left:16px;list-style:none;border-left:1px solid var(--rule)}
+#hw-toc li{margin:0}
+#hw-toc a{display:block;color:var(--fg2);text-decoration:none;padding:3px 7px;border-radius:5px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#hw-toc li a b{color:var(--accent);font-weight:600;margin-right:3px}
+#hw-toc a:hover{background:var(--soft);color:var(--accent)}
+#hw-toc a.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
+#hw-theme-btn{position:fixed;right:14px;top:14px;z-index:6;height:28px;padding:0 12px;border:1px solid var(--rule);
+  border-radius:14px;background:var(--panel);color:var(--fg2);font:12px/1 var(--sans);cursor:pointer}
+#hw-theme-btn:hover{color:var(--accent);border-color:var(--accent)}
+#hw-toc-btn{display:none;position:fixed;left:12px;top:12px;z-index:6;height:28px;padding:0 12px;border:1px solid var(--rule);
+  border-radius:14px;background:var(--panel);color:var(--fg2);font:12px/1 var(--sans);cursor:pointer}
+h2,.hw-q{scroll-margin-top:16px}
+@media (max-width:980px){
+  body{padding-left:0}
+  #hw-toc{transform:translateX(-100%);transition:transform .2s;box-shadow:0 0 30px rgba(0,0,0,.25)}
+  body.toc-open #hw-toc{transform:none}
+  #hw-toc-btn{display:block}
+}
+@media print{body{background:#fff;padding-left:0}#hw-toc,#hw-theme-btn,#hw-toc-btn{display:none}
+  .hw-doc{max-width:none;margin:0;padding:0;box-shadow:none}.hw-q{page-break-inside:avoid;border-color:#ccc}}</style>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem('ykt-hw-theme')||'auto'}catch(e){}</script>
+</head><body>
+<button id="hw-theme-btn" title="切换主题"></button>
+<button id="hw-toc-btn">☰ 目录</button>
+<nav id="hw-toc">
+  <div class="hw-toc-title">目录 <i>共 148 题</i></div>
+  
+  <details>
+    <summary><a href="#hw-90178748">第一章习题</a><i>20</i></summary>
+    <ul><li><a href="#q-90178748-1"><b>1.</b> 判断题 · 在信息、知识、文献和情报四个概念中，信息外延最大，知…</a></li><li><a href="#q-90178748-2"><b>2.</b> 判断题 · 图书的特点是系统、完整、全面。但出版时间较长，不能及…</a></li><li><a href="#q-90178748-3"><b>3.</b> 判断题 · 期刊论文特点是出版周期短、报道速度快、数量大，内容丰…</a></li><li><a href="#q-90178748-4"><b>4.</b> 判断题 · SCI数据库、EI数据库、字典、词典、百科全书等都属…</a></li><li><a href="#q-90178748-5"><b>5.</b> 判断题 · 在数据库检索中，主题词途径和主题途径是完全一致的。</a></li><li><a href="#q-90178748-6"><b>6.</b> 判断题 · 截词是指检索者将检索词在他认为合适的地方截断，截词相…</a></li><li><a href="#q-90178748-7"><b>7.</b> 判断题 · 模糊检索不仅可检索出包括该检索词的信息，还包括与检索…</a></li><li><a href="#q-90178748-8"><b>8.</b> 判断题 · 题名和关键词检索查准率高，但查全率比较低</a></li><li><a href="#q-90178748-9"><b>9.</b> 判断题 · 主题和全文检索查全率高，但误检率也很高</a></li><li><a href="#q-90178748-10"><b>10.</b> 判断题 · 开放获取一定是通过网络获取。</a></li><li><a href="#q-90178748-11"><b>11.</b> 判断题 · 免费期刊就是OA期刊。</a></li><li><a href="#q-90178748-12"><b>12.</b> 单选题 · 逻辑与是一种用于交叉概念或限定关系的组配。逻辑与算符…</a></li><li><a href="#q-90178748-13"><b>13.</b> 单选题 · “逻辑或”是用于并列概念的一种组配，逻辑或算符越多，…</a></li><li><a href="#q-90178748-14"><b>14.</b> 单选题 · 下列检索途径中哪个检索结果最少？</a></li><li><a href="#q-90178748-15"><b>15.</b> 多选题 · 信息素养四要素包括：</a></li><li><a href="#q-90178748-16"><b>16.</b> 多选题 · 科研过程一般包括哪三个过程？</a></li><li><a href="#q-90178748-17"><b>17.</b> 多选题 · 我国图书馆事业的三大支柱图书馆是？</a></li><li><a href="#q-90178748-18"><b>18.</b> 多选题 · 高校图书馆的主要职能是？</a></li><li><a href="#q-90178748-19"><b>19.</b> 多选题 · 下列哪些属于早期文献形态载体？</a></li><li><a href="#q-90178748-20"><b>20.</b> 多选题 · 布尔逻辑算符包括：</a></li></ul>
+  </details>
+  <details>
+    <summary><a href="#hw-90178770">第二章习题</a><i>25</i></summary>
+    <ul><li><a href="#q-90178770-1"><b>1.</b> 多选题 · 中国知网平台上，可查询多种文献类型，包括</a></li><li><a href="#q-90178770-2"><b>2.</b> 单选题 · 进入中国知网的期刊数据库中，输入某个主题检索后，会得…</a></li><li><a href="#q-90178770-3"><b>3.</b> 多选题 · 万方数据知识服务平台包括了以下哪些文献类型？</a></li><li><a href="#q-90178770-4"><b>4.</b> 判断题 · 在中国知网和万方数据平台上，是否都可以下载并查看论文…</a></li><li><a href="#q-90178770-5"><b>5.</b> 单选题 · 小王同学在万方数据知识服务平台上检索了期刊论文，点击…</a></li><li><a href="#q-90178770-6"><b>6.</b> 单选题 · 在万方数据知识服务平台上，对期刊论文的检索结果中，左…</a></li><li><a href="#q-90178770-7"><b>7.</b> 多选题 · 常用的两个中文电子图书数据库是</a></li><li><a href="#q-90178770-8"><b>8.</b> 单选题 · 读秀知识库里，不能阅读图书全文的，可以通过页面上哪种…</a></li><li><a href="#q-90178770-9"><b>9.</b> 判断题 · 读秀可以帮助实现任何一句话、任何一个知识点以及任何一…</a></li><li><a href="#q-90178770-10"><b>10.</b> 多选题 · 超星提供了哪两种阅读方式</a></li><li><a href="#q-90178770-11"><b>11.</b> 单选题 · 在中国知网的出版物导航里，可以通过以下哪个查看关于期…</a></li><li><a href="#q-90178770-12"><b>12.</b> 判断题 · 爱迪科森网上报告厅主要以专家演讲方式，提供权威的学术…</a></li><li><a href="#q-90178770-13"><b>13.</b> 多选题 · 在北大法宝数据库里，都可以进行哪些知识的学习？</a></li><li><a href="#q-90178770-14"><b>14.</b> 多选题 · 以下对综述的理解，正确的是</a></li><li><a href="#q-90178770-15"><b>15.</b> 单选题 · 国家自然科学基金主要是支持</a></li><li><a href="#q-90178770-16"><b>16.</b> 多选题 · 以下对学术热点的理解正确的是</a></li><li><a href="#q-90178770-17"><b>17.</b> 判断题 · 微思翻译能支持全文翻译，多种语言互译，翻译后的文档保…</a></li><li><a href="#q-90178770-18"><b>18.</b> 多选题 · 在百度学术里，有以下哪些功能</a></li><li><a href="#q-90178770-19"><b>19.</b> 单选题 · 在本职工作当中创造发明，在创造当中使用了公司提供的物…</a></li><li><a href="#q-90178770-20"><b>20.</b> 单选题 · 职务发明的专利权是属于</a></li><li><a href="#q-90178770-21"><b>21.</b> 多选题 · 在我国，专利有哪些特性？</a></li><li><a href="#q-90178770-22"><b>22.</b> 单选题 · 发明专利权的期限为多少年？</a></li><li><a href="#q-90178770-23"><b>23.</b> 单选题 · 除了对专利申请进行形式审查外，还需要进行实质审查，这…</a></li><li><a href="#q-90178770-24"><b>24.</b> 多选题 · 专利可分为哪三种专利类型？</a></li><li><a href="#q-90178770-25"><b>25.</b> 单选题 · 文献综述的主题部分可按文献发表的年代顺序综述，也可按…</a></li></ul>
+  </details>
+  <details>
+    <summary><a href="#hw-90178781">第三章习题</a><i>30</i></summary>
+    <ul><li><a href="#q-90178781-1"><b>1.</b> 多选题 · 通常说的三大检索系统是指哪三个？</a></li><li><a href="#q-90178781-2"><b>2.</b> 单选题 · 三大检索是文摘型还是全文型检索工具？</a></li><li><a href="#q-90178781-3"><b>3.</b> 单选题 · 以下哪个数据库是针对科学期刊文献的多学科索引，侧重于…</a></li><li><a href="#q-90178781-4"><b>4.</b> 单选题 · 以下哪个数据库是针对针对社会科学期刊文献的多学科索引…</a></li><li><a href="#q-90178781-5"><b>5.</b> 单选题 · 以下哪个数据库收录科技领域的会议录文献，主要包括：农…</a></li><li><a href="#q-90178781-6"><b>6.</b> 单选题 · 以下哪个数据库收录社会科学、艺术和人文学科领域的会议…</a></li><li><a href="#q-90178781-7"><b>7.</b> 单选题 · Ei Compendex拥有85个国家2,553家出…</a></li><li><a href="#q-90178781-8"><b>8.</b> 单选题 · Inspec由英国工程技术学会IET主编。它是在物理…</a></li><li><a href="#q-90178781-9"><b>9.</b> 单选题 · 在Engineering Village即EV平台检…</a></li><li><a href="#q-90178781-10"><b>10.</b> 判断题 · SCI-E和Ei数据库收录的期刊刊源是固定不变的，不…</a></li><li><a href="#q-90178781-11"><b>11.</b> 单选题 · Scopus由爱思唯尔（Elsevier）出版社推出…</a></li><li><a href="#q-90178781-12"><b>12.</b> 多选题 · 以下哪个数据库是全文型数据库？</a></li><li><a href="#q-90178781-13"><b>13.</b> 单选题 · 以下哪个数据库提供 IEEE（Institute o…</a></li><li><a href="#q-90178781-14"><b>14.</b> 单选题 · 以下哪个数据库提供爱思唯尔Elsevier公司出版的…</a></li><li><a href="#q-90178781-15"><b>15.</b> 单选题 · 以下哪个数据库提供德国施普林格科技出版集团的学术期刊…</a></li><li><a href="#q-90178781-16"><b>16.</b> 单选题 · 以下哪个数据库收录了1980以来60多个国家4,00…</a></li><li><a href="#q-90178781-17"><b>17.</b> 判断题 · 关于外文专利文献的检索，可以利用各大知识产权机构提供…</a></li><li><a href="#q-90178781-18"><b>18.</b> 多选题 · 以下可以实现对外文数据库整合检索的途径有：</a></li><li><a href="#q-90178781-19"><b>19.</b> 判断题 · 百链、高科联盟和外文期刊网等途径检索到的文献提供相应…</a></li><li><a href="#q-90178781-20"><b>20.</b> 判断题 · 在外文数据库检索时，人名、地名等检索词必须大写，检索…</a></li><li><a href="#q-90178781-21"><b>21.</b> 多选题 · 检索“在SCIE和SSCI中，华北电力大学的作者发表…</a></li><li><a href="#q-90178781-22"><b>22.</b> 多选题 · 在WOS平台，输入检索词：elect* ，可检索到包…</a></li><li><a href="#q-90178781-23"><b>23.</b> 多选题 · 在WOS平台，输入检索词：cent?? ，可检索到包…</a></li><li><a href="#q-90178781-24"><b>24.</b> 单选题 · “高被引论文”和“热点论文”等与以下哪个因素有关？</a></li><li><a href="#q-90178781-25"><b>25.</b> 单选题 · 检索“物联网技术（Internet of Thing…</a></li><li><a href="#q-90178781-26"><b>26.</b> 单选题 · 在Engineering Village即EV平台，…</a></li><li><a href="#q-90178781-27"><b>27.</b> 多选题 · 在Engineering Village即EV平台，…</a></li><li><a href="#q-90178781-28"><b>28.</b> 单选题 · Scopus数据库中，每篇文献的“Scopus度量标…</a></li><li><a href="#q-90178781-29"><b>29.</b> 判断题 · 在Web of Science平台能够检索到的文献即…</a></li><li><a href="#q-90178781-30"><b>30.</b> 判断题 · 在Engineering Village平台能够检索…</a></li></ul>
+  </details>
+  <details>
+    <summary><a href="#hw-90178792">第四章习题</a><i>22</i></summary>
+    <ul><li><a href="#q-90178792-1"><b>1.</b> 多选题 · 科技期刊评价的理论基础，也是文献计量学的三大经典定律…</a></li><li><a href="#q-90178792-2"><b>2.</b> 单选题 · 文献计量学家加菲尔德是哪国人？</a></li><li><a href="#q-90178792-3"><b>3.</b> 单选题 · 著名的“加菲尔德引文集中定律”，从()的角度出发证实…</a></li><li><a href="#q-90178792-4"><b>4.</b> 多选题 · 核心期刊通常具有哪些特点？</a></li><li><a href="#q-90178792-5"><b>5.</b> 判断题 · 影响因子有二年影响因子和五年影响因子之分，通常是指五…</a></li><li><a href="#q-90178792-6"><b>6.</b> 判断题 · 期刊h指数与影响因子等指标综合使用，可从不同的角度揭…</a></li><li><a href="#q-90178792-7"><b>7.</b> 判断题 · h代表“高引用次数”，一个人的h指数越高，则表明他的…</a></li><li><a href="#q-90178792-8"><b>8.</b> 单选题 · JCR分区的原理是先划范围，再分()，学科内排序后四…</a></li><li><a href="#q-90178792-9"><b>9.</b> 单选题 · 《中国科学院文献情报中心期刊分区表》（简称期刊分区表…</a></li><li><a href="#q-90178792-10"><b>10.</b> 单选题 · ESI上榜学科指某研究机构在该学科发表论文的被引次数…</a></li><li><a href="#q-90178792-11"><b>11.</b> 单选题 · ESI高被引论文是指根据同一年同一ESI学科统计最近…</a></li><li><a href="#q-90178792-12"><b>12.</b> 单选题 · ESI热点论文（Hot Paper）是指按ESI学科…</a></li><li><a href="#q-90178792-13"><b>13.</b> 多选题 · 《中文核心期刊要目总览》由北京大学出版社出版，又称为…</a></li><li><a href="#q-90178792-14"><b>14.</b> 判断题 · 《中文核心期刊要目总览》第一版出版于1992年，之后…</a></li><li><a href="#q-90178792-15"><b>15.</b> 多选题 · 《中文社会科学引文索引》简称为CSSCI，是由南京大…</a></li><li><a href="#q-90178792-16"><b>16.</b> 单选题 · 《中国科技论文统计源期刊》，也称（）。</a></li><li><a href="#q-90178792-17"><b>17.</b> 单选题 · 《中国科学引文数据库》缩写为（）。</a></li><li><a href="#q-90178792-18"><b>18.</b> 单选题 · SCIE、SSCI和A&amp;HCI都是（）收录的索引数据…</a></li><li><a href="#q-90178792-19"><b>19.</b> 单选题 · Elsevier公司旗下（）数据库是目前全球最全面的…</a></li><li><a href="#q-90178792-20"><b>20.</b> 单选题 · 北京爱琴海公司推出的文献管理软件是（）。</a></li><li><a href="#q-90178792-21"><b>21.</b> 多选题 · 中国知网推出的（），既是一款文献管理软件，也是一款功…</a></li><li><a href="#q-90178792-22"><b>22.</b> 单选题 · （）是科睿唯安公司旗下的著名参考文献管理软件。</a></li></ul>
+  </details>
+  <details>
+    <summary><a href="#hw-90178798">第五章习题</a><i>50</i></summary>
+    <ul><li><a href="#q-90178798-1"><b>1.</b> 判断题 · 作者校对清样论文的时候，发现论文有需要添加的内容，可…</a></li><li><a href="#q-90178798-2"><b>2.</b> 判断题 · 在投稿之前需要确定论文与所投期刊的学科方向是否相符？</a></li><li><a href="#q-90178798-3"><b>3.</b> 判断题 · 在论文中如果作者已经将结果使用数据图表达，那么就不需…</a></li><li><a href="#q-90178798-4"><b>4.</b> 判断题 · 科技论文的摘要，引言，结果，结论的内容可以重复，因为…</a></li><li><a href="#q-90178798-5"><b>5.</b> 判断题 · 为了使论文的可信性强，所以参考文献多多的引用经典学术…</a></li><li><a href="#q-90178798-6"><b>6.</b> 判断题 · 参考文献直接从数据库软件中导出使用即可。</a></li><li><a href="#q-90178798-7"><b>7.</b> 判断题 · 科技论文的作者主要是高度专业化的研究人员，所以论文的…</a></li><li><a href="#q-90178798-8"><b>8.</b> 判断题 · 王某利用在A校读研究生期间的实验数据发表了一篇论文，…</a></li><li><a href="#q-90178798-9"><b>9.</b> 判断题 · A单位的王某参与了B单位李某论文发表前的评审会议，并…</a></li><li><a href="#q-90178798-10"><b>10.</b> 判断题 · 在科技论文的写作中，文中的符号，图表等需要遵守国家规…</a></li><li><a href="#q-90178798-11"><b>11.</b> 单选题 · 科技论文是</a></li><li><a href="#q-90178798-12"><b>12.</b> 单选题 · 关键词的书写顺序是按照关键词的</a></li><li><a href="#q-90178798-13"><b>13.</b> 单选题 · 表的题目在表的哪个位置</a></li><li><a href="#q-90178798-14"><b>14.</b> 单选题 · 图表在论文中按照以下哪个原则书写？</a></li><li><a href="#q-90178798-15"><b>15.</b> 单选题 · 会议录的文献识别代码是</a></li><li><a href="#q-90178798-16"><b>16.</b> 单选题 · 中文科技期刊的参考文献参考哪个标准</a></li><li><a href="#q-90178798-17"><b>17.</b> 单选题 · 在科技论文中表示1到100之间的数字</a></li><li><a href="#q-90178798-18"><b>18.</b> 单选题 · 以下哪个数字和单位的写法最规范</a></li><li><a href="#q-90178798-19"><b>19.</b> 单选题 · 以下哪个数字书写是准确的</a></li><li><a href="#q-90178798-20"><b>20.</b> 单选题 · 编辑审查流程的参与者是</a></li><li><a href="#q-90178798-21"><b>21.</b> 单选题 · 出版前需要给作者的校样是哪一个。</a></li><li><a href="#q-90178798-22"><b>22.</b> 单选题 · 作者回复专家审稿意见包括哪些。</a></li><li><a href="#q-90178798-23"><b>23.</b> 单选题 · 图的题目在图的哪个位置</a></li><li><a href="#q-90178798-24"><b>24.</b> 单选题 · 这条文献哪里有错误[1] 徐千鸣, 马伏军, 何志兴…</a></li><li><a href="#q-90178798-25"><b>25.</b> 单选题 · 一稿多投是指将同一篇论文或只有微小差别的多篇论文投给…</a></li><li><a href="#q-90178798-26"><b>26.</b> 多选题 · 科技论文的特点</a></li><li><a href="#q-90178798-27"><b>27.</b> 多选题 · 科技论文的作用</a></li><li><a href="#q-90178798-28"><b>28.</b> 多选题 · 科技论文的主要读者</a></li><li><a href="#q-90178798-29"><b>29.</b> 多选题 · 科技论文的规范性包括</a></li><li><a href="#q-90178798-30"><b>30.</b> 多选题 · 科技论文写作是科研工作者必须具备的科研素养，科研工作…</a></li><li><a href="#q-90178798-31"><b>31.</b> 多选题 · 引言的作用是梳理论文演技领域，突出研究问题，所引用的…</a></li><li><a href="#q-90178798-32"><b>32.</b> 多选题 · 量分为哪两类</a></li><li><a href="#q-90178798-33"><b>33.</b> 多选题 · 哪些量用黑斜体表示</a></li><li><a href="#q-90178798-34"><b>34.</b> 多选题 · 投稿信息包括</a></li><li><a href="#q-90178798-35"><b>35.</b> 多选题 · 编辑加工的工作内容包括以下哪些进行标准化和和规范化的…</a></li><li><a href="#q-90178798-36"><b>36.</b> 多选题 · 大学生需要遵守的道德规范中国家法律法规包括</a></li><li><a href="#q-90178798-37"><b>37.</b> 多选题 · 标题的作用</a></li><li><a href="#q-90178798-38"><b>38.</b> 多选题 · 摘要的书写中包括以下哪些内容</a></li><li><a href="#q-90178798-39"><b>39.</b> 多选题 · 以下哪些选项是变量</a></li><li><a href="#q-90178798-40"><b>40.</b> 多选题 · 科技论文中图、表的基本要求是</a></li><li><a href="#q-90178798-41"><b>41.</b> 多选题 · 图、表在科技论文中的书写原则有哪些？</a></li><li><a href="#q-90178798-42"><b>42.</b> 多选题 · 获取投稿信息的途径</a></li><li><a href="#q-90178798-43"><b>43.</b> 多选题 · 外审退修意见包括</a></li><li><a href="#q-90178798-44"><b>44.</b> 多选题 · 作者在投稿前需要熟悉所投期刊的哪些规则。</a></li><li><a href="#q-90178798-45"><b>45.</b> 多选题 · 决定论文是否会被编辑部录用的因素有哪些。</a></li><li><a href="#q-90178798-46"><b>46.</b> 多选题 · 如何引用参考文献</a></li><li><a href="#q-90178798-47"><b>47.</b> 多选题 · 大学生论文写作的不规范行为主要表现在</a></li><li><a href="#q-90178798-48"><b>48.</b> 多选题 · 期刊作者学术不端行为主要有：</a></li><li><a href="#q-90178798-49"><b>49.</b> 多选题 · 标题的要求</a></li><li><a href="#q-90178798-50"><b>50.</b> 多选题 · 按照《学术出版规范—期刊学术不端行为界定（CY/T …</a></li></ul>
+  </details>
+  <details>
+    <summary><a href="#hw-90186373">研究生结课报告提交要求</a><i>1</i></summary>
+    <ul><li><a href="#q-90186373-1"><b>1.</b> 主观题 · 1、请所有同学通过雨课堂提交电子版结课报告。 2、结…</a></li></ul>
+  </details>
+</nav>
+<main class="hw-doc">
+  <h1>习题</h1>
+  <blockquote>科技信息检索与论文写作专题讲座 · 6 份作业 · 共 148 题 · 2026/11/4 23:00:21</blockquote>
+  <h2 id="hw-90178748">第一章习题</h2>
+      <article class="hw-q" id="q-90178748-1">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">1</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body"> 在信息、知识、文献和情报四个概念中，信息外延最大，知识次之，文献、情报都属于知识。</div>
+        <ol class="hw-q-opts"><li><b>true.</b> 正确</li><li><b>false.</b> 错误</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">正确</span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178748-2">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">2</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">图书的特点是系统、完整、全面。但出版时间较长，不能及时反映最新科研成果。</div>
+        <ol class="hw-q-opts"><li><b>true.</b> 正确</li><li><b>false.</b> 错误</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">正确</span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178748-3">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">3</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">期刊论文特点是出版周期短、报道速度快、数量大，内容丰富。</div>
+        <ol class="hw-q-opts"><li><b>true.</b> 正确</li><li><b>false.</b> 错误</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">正确</span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178748-4">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">4</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">SCI数据库、EI数据库、字典、词典、百科全书等都属于二次文献。</div>
+        <ol class="hw-q-opts"><li><b>true.</b> 正确</li><li><b>false.</b> 错误</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">错误</span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178748-5">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">5</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">在数据库检索中，主题词途径和主题途径是完全一致的。</div>
+        <ol class="hw-q-opts"><li><b>true.</b> 正确</li><li><b>false.</b> 错误</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">错误</span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178748-6">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">6</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">截词是指检索者将检索词在他认为合适的地方截断，截词相当于逻辑或，会提高查全率</div>
+        <ol class="hw-q-opts"><li><b>true.</b> 正确</li><li><b>false.</b> 错误</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">正确</span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178748-7">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">7</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">模糊检索不仅可检索出包括该检索词的信息，还包括与检索词相近的内容，提高查全率</div>
+        <ol class="hw-q-opts"><li><b>true.</b> 正确</li><li><b>false.</b> 错误</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">正确</span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178748-8">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">8</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">题名和关键词检索查准率高，但查全率比较低</div>
+        <ol class="hw-q-opts"><li><b>true.</b> 正确</li><li><b>false.</b> 错误</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">正确</span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178748-9">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">9</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">主题和全文检索查全率高，但误检率也很高</div>
+        <ol class="hw-q-opts"><li><b>true.</b> 正确</li><li><b>false.</b> 错误</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">正确</span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178748-10">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">10</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">开放获取一定是通过网络获取。</div>
+        <ol class="hw-q-opts"><li><b>true.</b> 正确</li><li><b>false.</b> 错误</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">正确</span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178748-11">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">11</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">免费期刊就是OA期刊。</div>
+        <ol class="hw-q-opts"><li><b>true.</b> 正确</li><li><b>false.</b> 错误</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">错误</span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178748-12">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">12</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">逻辑与是一种用于交叉概念或限定关系的组配。逻辑与算符越多，检索结果（  ）。</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 越多</li><li><b>B.</b> 越少</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">B.</span><span class="hw-val">越少</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178748-13">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">13</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">“逻辑或”是用于并列概念的一种组配，逻辑或算符越多，检索结果（  ）。</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 越多</li><li><b>B.</b> 越少</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">越多</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178748-14">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">14</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">下列检索途径中哪个检索结果最少？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 关键词途径</li><li><b>B.</b> 摘要途径</li><li><b>C.</b> 篇名途径</li><li><b>D.</b> 全文途径</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">C.</span><span class="hw-val">篇名途径</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178748-15">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">15</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body">信息素养四要素包括：</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 信息意识</li><li><b>B.</b> 信息知识</li><li><b>C.</b> 信息能力</li><li><b>D.</b> 信息道德</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">信息意识</span></li><li><span class="hw-key">B.</span><span class="hw-val">信息知识</span></li><li><span class="hw-key">C.</span><span class="hw-val">信息能力</span></li><li><span class="hw-key">D.</span><span class="hw-val">信息道德</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178748-16">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">16</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body">科研过程一般包括哪三个过程？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 准备阶段</li><li><b>B.</b> 学习阶段</li><li><b>C.</b> 进行阶段</li><li><b>D.</b> 总结阶段</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">准备阶段</span></li><li><span class="hw-key">C.</span><span class="hw-val">进行阶段</span></li><li><span class="hw-key">D.</span><span class="hw-val">总结阶段</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178748-17">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">17</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body"> 我国图书馆事业的三大支柱图书馆是？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 国家图书馆</li><li><b>B.</b> 公共图书馆</li><li><b>C.</b> 高等学校图书馆</li><li><b>D.</b> 专业图书馆</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">B.</span><span class="hw-val">公共图书馆</span></li><li><span class="hw-key">C.</span><span class="hw-val">高等学校图书馆</span></li><li><span class="hw-key">D.</span><span class="hw-val">专业图书馆</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178748-18">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">18</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body">高校图书馆的主要职能是？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 图书借阅</li><li><b>B.</b> 教育职能</li><li><b>C.</b> 信息服务职能</li><li><b>D.</b> 学习空间</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">B.</span><span class="hw-val">教育职能</span></li><li><span class="hw-key">C.</span><span class="hw-val">信息服务职能</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178748-19">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">19</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body">下列哪些属于早期文献形态载体？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 印刷型</li><li><b>B.</b> 甲骨</li><li><b>C.</b> 丝帛</li><li><b>D.</b> 竹简</li><li><b>E.</b> 缩微型</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">B.</span><span class="hw-val">甲骨</span></li><li><span class="hw-key">C.</span><span class="hw-val">丝帛</span></li><li><span class="hw-key">D.</span><span class="hw-val">竹简</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178748-20">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">20</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body">布尔逻辑算符包括：</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 逻辑与</li><li><b>B.</b> 逻辑或</li><li><b>C.</b> 截词</li><li><b>D.</b> 逻辑非</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">逻辑与</span></li><li><span class="hw-key">B.</span><span class="hw-val">逻辑或</span></li><li><span class="hw-key">D.</span><span class="hw-val">逻辑非</span></li></ul></div>
+      </article>
+<h2 id="hw-90178770">第二章习题</h2>
+      <article class="hw-q" id="q-90178770-1">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">1</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body">中国知网平台上，可查询多种文献类型，包括</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 期刊论文</li><li><b>B.</b> 会议论文</li><li><b>C.</b> 学位论文</li><li><b>D.</b> 专利</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">期刊论文</span></li><li><span class="hw-key">B.</span><span class="hw-val">会议论文</span></li><li><span class="hw-key">C.</span><span class="hw-val">学位论文</span></li><li><span class="hw-key">D.</span><span class="hw-val">专利</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178770-2">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">2</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">进入中国知网的期刊数据库中，输入某个主题检索后，会得到检索结果。要得到文献阅读价值大的论文，通常对检索结果的排序依据是</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 主题</li><li><b>B.</b> 被引</li><li><b>C.</b> 文献类型</li><li><b>D.</b> 学科分类</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">B.</span><span class="hw-val">被引</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178770-3">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">3</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body">万方数据知识服务平台包括了以下哪些文献类型？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 期刊论文</li><li><b>B.</b> 学位论文</li><li><b>C.</b> 科技成果</li><li><b>D.</b> 专利</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">期刊论文</span></li><li><span class="hw-key">B.</span><span class="hw-val">学位论文</span></li><li><span class="hw-key">C.</span><span class="hw-val">科技成果</span></li><li><span class="hw-key">D.</span><span class="hw-val">专利</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178770-4">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">4</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">在中国知网和万方数据平台上，是否都可以下载并查看论文全文？</div>
+        <ol class="hw-q-opts"><li><b>true.</b> 正确</li><li><b>false.</b> 错误</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">正确</span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178770-5">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">5</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">小王同学在万方数据知识服务平台上检索了期刊论文，点击检索结果页面左侧的哪个按钮可以具体查看某一个大学或机构的论文？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 作者</li><li><b>B.</b> 刊名</li><li><b>C.</b> 作者单位</li><li><b>D.</b> 来源数据库</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">C.</span><span class="hw-val">作者单位</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178770-6">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">6</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">在万方数据知识服务平台上，对期刊论文的检索结果中，左侧哪个分组标签能显示期刊的刊源或级别？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 来源数据库</li><li><b>B.</b> 核心</li><li><b>C.</b> 学科分类</li><li><b>D.</b> 年份</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">B.</span><span class="hw-val">核心</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178770-7">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">7</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body">常用的两个中文电子图书数据库是</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 知网</li><li><b>B.</b> 读秀知识库</li><li><b>C.</b> 超星电子书</li><li><b>D.</b> 万方数据知识平台</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">B.</span><span class="hw-val">读秀知识库</span></li><li><span class="hw-key">C.</span><span class="hw-val">超星电子书</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178770-8">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">8</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">读秀知识库里，不能阅读图书全文的，可以通过页面上哪种方式查看？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 图书馆文献传递</li><li><b>B.</b> 下载全文</li><li><b>C.</b> 知识搜索</li><li><b>D.</b> 高级检索</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">图书馆文献传递</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178770-9">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">9</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">读秀可以帮助实现任何一句话、任何一个知识点以及任何一个章节的检索。</div>
+        <ol class="hw-q-opts"><li><b>true.</b> 正确</li><li><b>false.</b> 错误</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">正确</span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178770-10">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">10</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body">超星提供了哪两种阅读方式</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 文献传递</li><li><b>B.</b> 知识点阅读</li><li><b>C.</b> 阅读器阅读</li><li><b>D.</b> PDF阅读</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">C.</span><span class="hw-val">阅读器阅读</span></li><li><span class="hw-key">D.</span><span class="hw-val">PDF阅读</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178770-11">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">11</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>在中国知网的出版物导航里，可以通过以下哪个查看关于期刊的相关信息？</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 期刊导航</li><li><b>B.</b> 学位授予单位导航</li><li><b>C.</b> 报纸导航</li><li><b>D.</b> 会议导航</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">期刊导航</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178770-12">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">12</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">爱迪科森网上报告厅主要以专家演讲方式，提供权威的学术报告</div>
+        <ol class="hw-q-opts"><li><b>true.</b> 正确</li><li><b>false.</b> 错误</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">正确</span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178770-13">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">13</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body">在北大法宝数据库里，都可以进行哪些知识的学习？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 检索司法案例</li><li><b>B.</b> 查看案例纠纷</li><li><b>C.</b> 学习法律知识</li><li><b>D.</b> 观看法律视频</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">检索司法案例</span></li><li><span class="hw-key">B.</span><span class="hw-val">查看案例纠纷</span></li><li><span class="hw-key">C.</span><span class="hw-val">学习法律知识</span></li><li><span class="hw-key">D.</span><span class="hw-val">观看法律视频</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178770-14">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">14</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body">以下对综述的理解，正确的是</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 综述能反映出某一专题、某一领域在一定时期内的研究工作进展情况</li><li><b>B.</b> 期刊论文都是综述文献</li><li><b>C.</b> 一般来说，带有综述、发展趋势、研究述评字样的是综述文献</li><li><b>D.</b> 综述论文只需列举他人研究成果即可</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">综述能反映出某一专题、某一领域在一定时期内的研究工作进展情况</span></li><li><span class="hw-key">C.</span><span class="hw-val">一般来说，带有综述、发展趋势、研究述评字样的是综述文献</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178770-15">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">15</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">国家自然科学基金主要是支持</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 专题研究</li><li><b>B.</b> 物理研究</li><li><b>C.</b> 基础研究</li><li><b>D.</b> 航天科学研究</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">C.</span><span class="hw-val">基础研究</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178770-16">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">16</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body">以下对学术热点的理解正确的是</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 研究前沿</li><li><b>B.</b> 发展趋势</li><li><b>C.</b> 某一学科或领域在某一时间段被高度关注并产生较大影响力的研究方向</li><li><b>D.</b> 能轻而易举地发现的</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">研究前沿</span></li><li><span class="hw-key">B.</span><span class="hw-val">发展趋势</span></li><li><span class="hw-key">C.</span><span class="hw-val">某一学科或领域在某一时间段被高度关注并产生较大影响力的研究方向</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178770-17">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">17</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">微思翻译能支持全文翻译，多种语言互译，翻译后的文档保留原文版式。此外它也支持PDF、Word格式文件的全文翻译。</div>
+        <ol class="hw-q-opts"><li><b>true.</b> 正确</li><li><b>false.</b> 错误</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">正确</span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178770-18">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">18</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body">在百度学术里，有以下哪些功能</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 高被引论文推荐</li><li><b>B.</b> 学科分析</li><li><b>C.</b> 某一学科的研究主题情况</li><li><b>D.</b> 某一学科的代表学者和代表性刊物</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">高被引论文推荐</span></li><li><span class="hw-key">B.</span><span class="hw-val">学科分析</span></li><li><span class="hw-key">C.</span><span class="hw-val">某一学科的研究主题情况</span></li><li><span class="hw-key">D.</span><span class="hw-val">某一学科的代表学者和代表性刊物</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178770-19">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">19</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">在本职工作当中创造发明，在创造当中使用了公司提供的物质或者技术条件，这属于</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 职务发明</li><li><b>B.</b> 非职务发明</li><li><b>C.</b> 实用新型</li><li><b>D.</b> 发明专利</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">职务发明</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178770-20">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">20</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">职务发明的专利权是属于</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 个人</li><li><b>B.</b> 单位</li><li><b>C.</b> 个人和单位都是</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">B.</span><span class="hw-val">单位</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178770-21">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">21</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body">在我国，专利有哪些特性？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 倾向性</li><li><b>B.</b> 专有性</li><li><b>C.</b> 地域性</li><li><b>D.</b> 时间性</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">B.</span><span class="hw-val">专有性</span></li><li><span class="hw-key">C.</span><span class="hw-val">地域性</span></li><li><span class="hw-key">D.</span><span class="hw-val">时间性</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178770-22">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">22</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">发明专利权的期限为多少年？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 10</li><li><b>B.</b> 15</li><li><b>C.</b> 20</li><li><b>D.</b> 25</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">C.</span><span class="hw-val">20</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178770-23">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">23</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">除了对专利申请进行形式审查外，还需要进行实质审查，这是指专利的哪种审查？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 实质审查制</li><li><b>B.</b> 形式审查制</li><li><b>C.</b> 早期公开， 延迟审查制</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">实质审查制</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178770-24">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">24</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body">专利可分为哪三种专利类型？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 发明专利</li><li><b>B.</b> 实用新型专利</li><li><b>C.</b> 外观设计专利</li><li><b>D.</b> 创造性专利</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">发明专利</span></li><li><span class="hw-key">B.</span><span class="hw-val">实用新型专利</span></li><li><span class="hw-key">C.</span><span class="hw-val">外观设计专利</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178770-25">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">25</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">文献综述的主题部分可按文献发表的年代顺序综述，也可按不同的问题进行综述，还可按不同的观点进行比较综述。不管用哪一种格式，要注意对哪类文献的引用？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 所有文献</li><li><b>B.</b> 代表性强的文献</li><li><b>C.</b> 学科类文献</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">B.</span><span class="hw-val">代表性强的文献</span></li></ul></div>
+      </article>
+<h2 id="hw-90178781">第三章习题</h2>
+      <article class="hw-q" id="q-90178781-1">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">1</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body">通常说的三大检索系统是指哪三个？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 科学引文索引SCI</li><li><b>B.</b> 社会科学引文索引SSCI</li><li><b>C.</b> 工程索引Ei</li><li><b>D.</b> 科学会议录引文索引CPCI-S</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">科学引文索引SCI</span></li><li><span class="hw-key">C.</span><span class="hw-val">工程索引Ei</span></li><li><span class="hw-key">D.</span><span class="hw-val">科学会议录引文索引CPCI-S</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178781-2">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">2</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">三大检索是文摘型还是全文型检索工具？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 文摘型</li><li><b>B.</b> 全文型</li><li><b>C.</b> 不确定</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">文摘型</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178781-3">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">3</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>以下哪个数据库是针对<span style="color: #FF0000;">科学期刊文献</span>的多学科索引，侧重于收录基础科学研究成果，包含178个自然科学学科，9200多种主要学术期刊。</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> SCI-E</li><li><b>B.</b> SSCI</li><li><b>C.</b> CPCI-S</li><li><b>D.</b> CPCI-SSH</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">SCI-E</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178781-4">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">4</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>以下哪个数据库是针对针对<span style="color: #FF0000;">社会科学期刊文献</span>的多学科索引，涵盖了跨 58个社会科学学科的 3500 多种期刊。</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> SCI-E</li><li><b>B.</b> SSCI</li><li><b>C.</b> CPCI-S</li><li><b>D.</b> CPCI-SSH</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">B.</span><span class="hw-val">SSCI</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178781-5">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">5</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>以下哪个数据库收录<span style="color: #FF0000;">科技领域的会议录文献</span>，主要包括：农业、生物化学、生物学、生物技术、化学、计算机科学、工程学、环境科学、医学、物理等学科。</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> SCI-E</li><li><b>B.</b> SSCI</li><li><b>C.</b> CPCI-S</li><li><b>D.</b> CPCI-SSH</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">C.</span><span class="hw-val">CPCI-S</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178781-6">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">6</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>以下哪个数据库收录<span style="color: #FF0000;">社会科学、艺术和人文学科领域的会议文献</span>，主要包括：艺术、经济学、历史、文献、管理、哲学、心理学、公共卫生、社会学等学科。</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> SCI-E</li><li><b>B.</b> SSCI</li><li><b>C.</b> CPCI-S</li><li><b>D.</b> CPCI-SSH</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">D.</span><span class="hw-val">CPCI-SSH</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178781-7">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">7</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">Ei Compendex拥有85个国家2,553家出版商出版的190多个工程学科的超过2750万条记录，主要包括期刊和会议录文献。下面哪个是它的中文名称？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 科学引文索引</li><li><b>B.</b> 工程索引</li><li><b>C.</b> 科学文摘</li><li><b>D.</b> 科学会议录引文索引</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">B.</span><span class="hw-val">工程索引</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178781-8">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">8</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">Inspec由英国工程技术学会IET主编。它是在物理和工程领域中较全面的二次文献数据库，包括物理，电气工程和电子，计算机和控制，机械，信息技术等方面的工程研究信息。它是以下哪个检索工具的网络版？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 科学引文索引</li><li><b>B.</b> 工程索引</li><li><b>C.</b> 科学文摘</li><li><b>D.</b> 科学会议录引文索引</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">C.</span><span class="hw-val">科学文摘</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178781-9">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">9</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">在Engineering Village即EV平台检索时，如果要限定在Ei工程索引数据库中检索，需要勾选以下哪个选项？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> Compendex</li><li><b>B.</b> Inspec</li><li><b>C.</b> 勾选全部数据库</li><li><b>D.</b> 取消勾选所有数据库</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">Compendex</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178781-10">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">10</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">SCI-E和Ei数据库收录的期刊刊源是固定不变的，不会进行调整。</div>
+        <ol class="hw-q-opts"><li><b>true.</b> 正确</li><li><b>false.</b> 错误</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">错误</span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178781-11">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">11</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">Scopus由爱思唯尔（Elsevier）出版社推出的目前全球规模最大的文摘和引文数据库。Scopus中部分文献有全文链接：“View at Publisher"，请问：该全文链接是否可以打开文献全文？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 可以打开全文</li><li><b>B.</b> 视情况而定。</li><li><b>C.</b> 不可以打开全文</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">B.</span><span class="hw-val">视情况而定。</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178781-12">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">12</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body">以下哪个数据库是全文型数据库？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> IEL数据库</li><li><b>B.</b> SDOL数据库</li><li><b>C.</b> SPRINGER数据库</li><li><b>D.</b> PQDD外文学位论文数据库</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">IEL数据库</span></li><li><span class="hw-key">B.</span><span class="hw-val">SDOL数据库</span></li><li><span class="hw-key">C.</span><span class="hw-val">SPRINGER数据库</span></li><li><span class="hw-key">D.</span><span class="hw-val">PQDD外文学位论文数据库</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178781-13">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">13</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">以下哪个数据库提供 IEEE（Institute of Electrical and Electronics Engineers电气电子工程师学会）和其它出版商合作出版的各种科技文献的浏览和检索？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> IEL数据库</li><li><b>B.</b> SDOL数据库</li><li><b>C.</b> SPRINGER数据库</li><li><b>D.</b> PQDD外文学位论文数据库</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">IEL数据库</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178781-14">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">14</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">以下哪个数据库提供爱思唯尔Elsevier公司出版的四千多种期刊、三万多种图书的全文？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> IEL数据库</li><li><b>B.</b> SDOL数据库</li><li><b>C.</b> SPRINGER数据库</li><li><b>D.</b> PQDD外文学位论文数据库</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">B.</span><span class="hw-val">SDOL数据库</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178781-15">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">15</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">以下哪个数据库提供德国施普林格科技出版集团的学术期刊及电子图书的在线服务？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> IEL数据库</li><li><b>B.</b> SDOL数据库</li><li><b>C.</b> SPRINGER数据库</li><li><b>D.</b> PQDD外文学位论文数据库</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">C.</span><span class="hw-val">SPRINGER数据库</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178781-16">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">16</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">以下哪个数据库收录了1980以来60多个国家4,000余所高校的优秀博硕士论文？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> IEL数据库</li><li><b>B.</b> SDOL数据库</li><li><b>C.</b> SPRINGER数据库</li><li><b>D.</b> PQDD外文学位论文数据库</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">D.</span><span class="hw-val">PQDD外文学位论文数据库</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178781-17">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">17</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">关于外文专利文献的检索，可以利用各大知识产权机构提供的免费检索途径进行检索和浏览。</div>
+        <ol class="hw-q-opts"><li><b>true.</b> 正确</li><li><b>false.</b> 错误</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">正确</span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178781-18">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">18</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body">以下可以实现对外文数据库整合检索的途径有：</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 百链整合检索</li><li><b>B.</b> 高科联盟图书馆资源生态系统</li><li><b>C.</b> CALIS外文期刊网</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">百链整合检索</span></li><li><span class="hw-key">B.</span><span class="hw-val">高科联盟图书馆资源生态系统</span></li><li><span class="hw-key">C.</span><span class="hw-val">CALIS外文期刊网</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178781-19">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">19</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">百链、高科联盟和外文期刊网等途径检索到的文献提供相应全文数据库链接，对于我馆没有全文权限的文献，可以采用原文传递申请的办法获取全文。</div>
+        <ol class="hw-q-opts"><li><b>true.</b> 正确</li><li><b>false.</b> 错误</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">正确</span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178781-20">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">20</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">在外文数据库检索时，人名、地名等检索词必须大写，检索词采用大小写输入方式会得到不同的检索结果。</div>
+        <ol class="hw-q-opts"><li><b>true.</b> 正确</li><li><b>false.</b> 错误</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">错误</span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178781-21">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">21</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>检索<strong>“在SCIE和SSCI中，华北电力大学的作者发表的关于碳中和、碳达峰、零碳等主题研究的所有文献。”</strong>这个课题，可能用到的检索字段有哪些？</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 主题</li><li><b>B.</b> 作者</li><li><b>C.</b> 机构</li><li><b>D.</b> 出版物名称</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">主题</span></li><li><span class="hw-key">C.</span><span class="hw-val">机构</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178781-22">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">22</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body">在WOS平台，输入检索词：elect* ，可检索到包含以下哪些单词的检索结果？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> elect</li><li><b>B.</b> electric</li><li><b>C.</b> select</li><li><b>D.</b> electrical</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">elect</span></li><li><span class="hw-key">B.</span><span class="hw-val">electric</span></li><li><span class="hw-key">D.</span><span class="hw-val">electrical</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178781-23">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">23</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body">在WOS平台，输入检索词：cent?? ，可检索到包含以下哪些单词的检索结果？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> central</li><li><b>B.</b> center</li><li><b>C.</b> centre</li><li><b>D.</b> centers</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">B.</span><span class="hw-val">center</span></li><li><span class="hw-key">C.</span><span class="hw-val">centre</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178781-24">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">24</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">“高被引论文”和“热点论文”等与以下哪个因素有关？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 该论文引用的参考文献数量</li><li><b>B.</b> 该论文被其它论文引用的情况</li><li><b>C.</b> 该论文被下载次数</li><li><b>D.</b> 该论文被浏览次数</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">B.</span><span class="hw-val">该论文被其它论文引用的情况</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178781-25">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">25</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">检索“物联网技术（Internet of Things,简称IoT）在智能电网（smart grid)中的应用”这个课题，各检索词之间应选择下列哪种逻辑关系？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> (Internet of Things) AND IoT AND (smart grid)</li><li><b>B.</b> (Internet of Things) AND IoT OR (smart grid)</li><li><b>C.</b> ((Internet of Things) OR IoT) AND (smart grid)</li><li><b>D.</b> ((Internet of Things) OR IoT) OR (smart grid)</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">C.</span><span class="hw-val">((Internet of Things) OR IoT) AND (smart grid)</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178781-26">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">26</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">在Engineering Village即EV平台，检索Ei网络版的时候，当以这样形式输入检索词：{power system}，将检索词用大括号{}或英文双引号""引起来表示什么意思？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 表示检索词之间的布尔逻辑关系为“或”</li><li><b>B.</b> 表示检索词之间的布尔逻辑关系为“非”</li><li><b>C.</b> 表示精确的词组检索</li><li><b>D.</b> 表示限制检索词在“题名”字段检索</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">C.</span><span class="hw-val">表示精确的词组检索</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178781-27">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">27</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body">在Engineering Village即EV平台，利用专家检索Expert Search页面进行检索的时候，关于检索式：(power system) wn TI，以下说法正确的有：</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 限制检索词在“题名”字段检索</li><li><b>B.</b> 限定power和system两个检索词作为词组出现</li><li><b>C.</b> power和system两个检索词之间是“与”的逻辑</li><li><b>D.</b> power和system两个检索词之间是“或”的逻辑</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">限制检索词在“题名”字段检索</span></li><li><span class="hw-key">C.</span><span class="hw-val">power和system两个检索词之间是“与”的逻辑</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178781-28">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">28</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">Scopus数据库中，每篇文献的“Scopus度量标准”列表中，如果“Scopus中的引用”一项显示“第99个百分数”，则表示：</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 表示该文献被99篇论文引用</li><li><b>B.</b> 表示该文献被引用情况在全球排名前1%，超过了99%的同类文献，属于“高被引文献”。</li><li><b>C.</b> 表示该文献被引用情况在全球排名前99%，超过了1%的同类文献，不属于“高被引文献”。</li><li><b>D.</b> 表示该文献被引用情况排名为第99位。</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">B.</span><span class="hw-val">表示该文献被引用情况在全球排名前1%，超过了99%的同类文献，属于“高被引文献”。</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178781-29">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">29</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">在Web of Science平台能够检索到的文献即为SCI数据库收录的文献。</div>
+        <ol class="hw-q-opts"><li><b>true.</b> 正确</li><li><b>false.</b> 错误</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">错误</span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178781-30">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">30</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">在Engineering Village平台能够检索到的文献即为Ei数据库收录的文献。</div>
+        <ol class="hw-q-opts"><li><b>true.</b> 正确</li><li><b>false.</b> 错误</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">错误</span><span class="hw-val"></span></li></ul></div>
+      </article>
+<h2 id="hw-90178792">第四章习题</h2>
+      <article class="hw-q" id="q-90178792-1">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">1</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body">科技期刊评价的理论基础，也是文献计量学的三大经典定律，指哪些定律？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 布拉德福的“文献离散定律”</li><li><b>B.</b> 加菲尔德的“引文分布定律”</li><li><b>C.</b> 普莱斯的“文献老化指数和引文峰值理论”</li><li><b>D.</b> 加菲尔德的“引文集中定律”</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">布拉德福的“文献离散定律”</span></li><li><span class="hw-key">C.</span><span class="hw-val">普莱斯的“文献老化指数和引文峰值理论”</span></li><li><span class="hw-key">D.</span><span class="hw-val">加菲尔德的“引文集中定律”</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178792-2">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">2</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">文献计量学家加菲尔德是哪国人？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 英国</li><li><b>B.</b> 德国</li><li><b>C.</b> 美国</li><li><b>D.</b> 奥地利</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">C.</span><span class="hw-val">美国</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178792-3">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">3</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">著名的“加菲尔德引文集中定律”，从()的角度出发证实了布氏定律及核心期刊的存在。</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 引证</li><li><b>B.</b> 论文</li><li><b>C.</b> 引文</li><li><b>D.</b> 引用</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">C.</span><span class="hw-val">引文</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178792-4">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">4</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body">核心期刊通常具有哪些特点？</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 学科性</li><li><b>B.</b> 集中性和代表性</li><li><b>C.</b> 动态性</li><li><b>D.</b> 权威性和实用性</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">学科性</span></li><li><span class="hw-key">B.</span><span class="hw-val">集中性和代表性</span></li><li><span class="hw-key">C.</span><span class="hw-val">动态性</span></li><li><span class="hw-key">D.</span><span class="hw-val">权威性和实用性</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178792-5">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">5</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">影响因子有二年影响因子和五年影响因子之分，通常是指五年影响因子</div>
+        <ol class="hw-q-opts"><li><b>true.</b> 正确</li><li><b>false.</b> 错误</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">错误</span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178792-6">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">6</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">期刊h指数与影响因子等指标综合使用，可从不同的角度揭示期刊的真实水平。</div>
+        <ol class="hw-q-opts"><li><b>true.</b> 正确</li><li><b>false.</b> 错误</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">正确</span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178792-7">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">7</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">h代表“高引用次数”，一个人的h指数越高，则表明他的论文影响力越大。</div>
+        <ol class="hw-q-opts"><li><b>true.</b> 正确</li><li><b>false.</b> 错误</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">正确</span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178792-8">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">8</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">JCR分区的原理是先划范围，再分()，学科内排序后四等分一二三四区，各占百分之二十五。</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 专业</li><li><b>B.</b> 学科</li><li><b>C.</b> 方向</li><li><b>D.</b> 范畴</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">B.</span><span class="hw-val">学科</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178792-9">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">9</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">《中国科学院文献情报中心期刊分区表》（简称期刊分区表）升级版基于期刊-学科隶属关系，采用基于概率统计原理的()，使分区结果更加合理，能够揭示出更多优秀的基础研究期刊。</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 引证指数</li><li><b>B.</b> 引用指数</li><li><b>C.</b> 期刊指数</li><li><b>D.</b> 期刊超越指数</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">D.</span><span class="hw-val">期刊超越指数</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178792-10">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">10</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">ESI上榜学科指某研究机构在该学科发表论文的被引次数进入世界前（）。</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 0.1%</li><li><b>B.</b> 0.01</li><li><b>C.</b> 0.0001</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">B.</span><span class="hw-val">0.01</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178792-11">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">11</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">ESI高被引论文是指根据同一年同一ESI学科统计最近10年发表论文中被引用次数进入世界前()的论文。</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 0.01</li><li><b>B.</b> 0.1%</li><li><b>C.</b> 0.0001</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">0.01</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178792-12">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">12</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>ESI热点论文（Hot Paper）是指按ESI学科统计最近两年发表、在最近两个月里被引用次数进入世界前（）的论文。</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 0.01</li><li><b>B.</b> 0.1%</li><li><b>C.</b> 0.0001</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">B.</span><span class="hw-val">0.1%</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178792-13">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">13</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body">《中文核心期刊要目总览》由北京大学出版社出版，又称为（）、（）。</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 中国核心</li><li><b>B.</b> 北大核心</li><li><b>C.</b> 北核</li><li><b>D.</b> 中文核心</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">B.</span><span class="hw-val">北大核心</span></li><li><span class="hw-key">C.</span><span class="hw-val">北核</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178792-14">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">14</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">《中文核心期刊要目总览》第一版出版于1992年，之后每四年更新出版一次。</div>
+        <ol class="hw-q-opts"><li><b>true.</b> 正确</li><li><b>false.</b> 错误</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">错误</span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178792-15">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">15</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body">《中文社会科学引文索引》简称为CSSCI，是由南京大学中国社会科学研究评价中心研制的引文数据库，又被称为（）、（）。</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 南大核心</li><li><b>B.</b> 社科核心</li><li><b>C.</b> 南核</li><li><b>D.</b> 南大索引</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">南大核心</span></li><li><span class="hw-key">C.</span><span class="hw-val">南核</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178792-16">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">16</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">《中国科技论文统计源期刊》，也称（）。</div>
+        <ol class="hw-q-opts"><li><b>A.</b> 中国核心期刊</li><li><b>B.</b> 科技核心</li><li><b>C.</b> 中国科技核心期刊</li><li><b>D.</b> 科技核心统计期刊</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">C.</span><span class="hw-val">中国科技核心期刊</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178792-17">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">17</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">《中国科学引文数据库》缩写为（）。</div>
+        <ol class="hw-q-opts"><li><b>A.</b> CSSCI</li><li><b>B.</b> CSCD</li><li><b>C.</b> CSTP</li><li><b>D.</b> CJCR</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">B.</span><span class="hw-val">CSCD</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178792-18">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">18</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">SCIE、SSCI和A&HCI都是（）收录的索引数据库。</div>
+        <ol class="hw-q-opts"><li><b>A.</b> ISTP</li><li><b>B.</b> ESI</li><li><b>C.</b> JCR</li><li><b>D.</b> WOS</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">D.</span><span class="hw-val">WOS</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178792-19">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">19</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">Elsevier公司旗下（）数据库是目前全球最全面的工程技术类二次文献数据库。</div>
+        <ol class="hw-q-opts"><li><b>A.</b> IEEE</li><li><b>B.</b> EI</li><li><b>C.</b> SDOL</li><li><b>D.</b> ISTP</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">B.</span><span class="hw-val">EI</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178792-20">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">20</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">北京爱琴海公司推出的文献管理软件是（）。</div>
+        <ol class="hw-q-opts"><li><b>A.</b> NoteFirst</li><li><b>B.</b> NoteExpress</li><li><b>C.</b> Zotero</li><li><b>D.</b> Mendeley</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">B.</span><span class="hw-val">NoteExpress</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178792-21">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">21</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body">中国知网推出的（），既是一款文献管理软件，也是一款功能丰富的科研协作工具</div>
+        <ol class="hw-q-opts"><li><b>A.</b> NoteExpress</li><li><b>B.</b> 知网研学</li><li><b>C.</b> NoteFirst</li><li><b>D.</b> E-Study</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">B.</span><span class="hw-val">知网研学</span></li><li><span class="hw-key">D.</span><span class="hw-val">E-Study</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178792-22">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">22</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body">（）是科睿唯安公司旗下的著名参考文献管理软件。</div>
+        <ol class="hw-q-opts"><li><b>A.</b> NoteExpress</li><li><b>B.</b> NoteFirst</li><li><b>C.</b> Endnote</li><li><b>D.</b> Mendeley</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">C.</span><span class="hw-val">Endnote</span></li></ul></div>
+      </article>
+<h2 id="hw-90178798">第五章习题</h2>
+      <article class="hw-q" id="q-90178798-1">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">1</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>作者校对清样论文的时候，发现论文有需要添加的内容，可否对论文进行充实</p></div></div>
+        <ol class="hw-q-opts"><li><b>true.</b> </li><li><b>false.</b> </li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key"></span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-2">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">2</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>在投稿之前需要确定论文与所投期刊的学科方向是否相符？</p></div></div>
+        <ol class="hw-q-opts"><li><b>true.</b> </li><li><b>false.</b> </li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key"></span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-3">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">3</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>在论文中如果作者已经将结果使用数据图表达，那么就不需要使用过多的文字进行说明实验结果</p></div></div>
+        <ol class="hw-q-opts"><li><b>true.</b> </li><li><b>false.</b> </li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key"></span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-4">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">4</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>科技论文的摘要，引言，结果，结论的内容可以重复，因为都是在围绕一个问题进行说明。</p></div></div>
+        <ol class="hw-q-opts"><li><b>true.</b> </li><li><b>false.</b> </li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key"></span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-5">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">5</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>为了使论文的可信性强，所以参考文献多多的引用经典学术著作。</p></div></div>
+        <ol class="hw-q-opts"><li><b>true.</b> </li><li><b>false.</b> </li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key"></span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-6">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">6</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>参考文献直接从数据库软件中导出使用即可。</p></div></div>
+        <ol class="hw-q-opts"><li><b>true.</b> </li><li><b>false.</b> </li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key"></span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-7">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">7</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>科技论文的作者主要是高度专业化的研究人员，所以论文的实验结果不用过多说明，大家都能看懂。</p></div></div>
+        <ol class="hw-q-opts"><li><b>true.</b> </li><li><b>false.</b> </li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key"></span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-8">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">8</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>王某利用在A校读研究生期间的实验数据发表了一篇论文，论文录用的时候他已经在B单位工作，可否把论文的所属机构写成B单位。</p></div></div>
+        <ol class="hw-q-opts"><li><b>true.</b> </li><li><b>false.</b> </li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key"></span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-9">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">9</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>A单位的王某参与了B单位李某论文发表前的评审会议，并针对论文结构提出了修改意见，是否要在论文发表的作者序列中列出王某的名字和A单位？</p></div></div>
+        <ol class="hw-q-opts"><li><b>true.</b> </li><li><b>false.</b> </li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key"></span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-10">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">10</span>
+          <span class="hw-q-type">判断题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>在科技论文的写作中，文中的符号，图表等需要遵守国家规范。</p></div></div>
+        <ol class="hw-q-opts"><li><b>true.</b> </li><li><b>false.</b> </li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key"></span><span class="hw-val"></span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-11">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">11</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>科技论文是</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 议论文</li><li><b>B.</b> 记叙文</li><li><b>C.</b> 散文</li><li><b>D.</b> 说明文</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">议论文</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-12">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">12</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>关键词的书写顺序是按照关键词的</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 拼音顺序</li><li><b>B.</b> 笔画顺序</li><li><b>C.</b> 重要程度</li><li><b>D.</b> 字数多少</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">C.</span><span class="hw-val">重要程度</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-13">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">13</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>表的题目在表的哪个位置</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 左方</li><li><b>B.</b> 上方</li><li><b>C.</b> 下方</li><li><b>D.</b> 右方</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">B.</span><span class="hw-val">上方</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-14">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">14</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p><span style="font-size:14px;font-family:等线">图表在论文中按照以下哪个原则书写？</span></p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 先图后文原则</li><li><b>B.</b> 先文后图原则</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">B.</span><span class="hw-val">先文后图原则</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-15">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">15</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>会议录的文献识别代码是</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> J</li><li><b>B.</b> C</li><li><b>C.</b> D</li><li><b>D.</b> DB</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">B.</span><span class="hw-val">C</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-16">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">16</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>中文科技期刊的参考文献参考哪个标准</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> GB/T7714-205《信息与文献 参考文献著录规则》</li><li><b>B.</b> MLA</li><li><b>C.</b> GB/T7714-2015《信息与文献 参考文献著录规则》</li><li><b>D.</b> APA</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">C.</span><span class="hw-val">GB/T7714-2015《信息与文献 参考文献著录规则》</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-17">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">17</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>在科技论文中表示1到100之间的数字</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 1~100</li><li><b>B.</b> 1100</li><li><b>C.</b> 1—100</li><li><b>D.</b> [1,100]</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">1~100</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-18">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">18</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>以下哪个数字和单位的写法最规范</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 0.001g</li><li><b>B.</b> 1g</li><li><b>C.</b> 1毫克</li><li><b>D.</b> 0.001克</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">C.</span><span class="hw-val">1毫克</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-19">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">19</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>以下哪个数字书写是准确的</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 10~30%</li><li><b>B.</b> 10%~30%</li><li><b>C.</b> 10——30%</li><li><b>D.</b> 10~30%</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">B.</span><span class="hw-val">10%~30%</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-20">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">20</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>编辑审查流程的参与者是</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 责任编辑</li><li><b>B.</b> 编辑部主任</li><li><b>C.</b> 作者</li><li><b>D.</b> 初审编辑</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">责任编辑</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-21">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">21</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>出版前需要给作者的校样是哪一个。</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 一校</li><li><b>B.</b> 二校</li><li><b>C.</b> 三校</li><li><b>D.</b> 清样</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">D.</span><span class="hw-val">清样</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-22">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">22</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>作者回复专家审稿意见包括哪些。</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 逐条、逐点回复。</li><li><b>B.</b> 回复重点。</li><li><b>C.</b> 回复主要内容。</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">逐条、逐点回复。</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-23">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">23</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>图的题目在图的哪个位置</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 左方</li><li><b>B.</b> 上方</li><li><b>C.</b> 下方</li><li><b>D.</b> 右方</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">C.</span><span class="hw-val">下方</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-24">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">24</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>这条文献哪里有错误[1]&nbsp;&nbsp;&nbsp;&nbsp;徐千鸣, 马伏军, 何志兴,李萍. 双星型多电平铁路功率调节器及其控制方法[J]. 中国电机工程学报, 2016, 36(13): 3609-3619.</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 作者</li><li><b>B.</b> 文献类型</li><li><b>C.</b> 页码标注</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">作者</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-25">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">25</span>
+          <span class="hw-q-type">单选题</span>
+          <span class="hw-q-score">1 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p><span style="font-family:宋体">一稿多投是指将同一篇论文或只有微小差别的多篇论文投给（</span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="font-family:宋体">）期刊，或者在约定期限内再转投其它期刊的行为。</span></p><p><br/></p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 两个及以上</li><li><b>B.</b> 三个以上</li><li><b>C.</b> 五个以上</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">两个及以上</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-26">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">26</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>科技论文的特点</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 学术性</li><li><b>B.</b> 科学性</li><li><b>C.</b> 专业性</li><li><b>D.</b> 规范性和创新性</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">学术性</span></li><li><span class="hw-key">B.</span><span class="hw-val">科学性</span></li><li><span class="hw-key">C.</span><span class="hw-val">专业性</span></li><li><span class="hw-key">D.</span><span class="hw-val">规范性和创新性</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-27">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">27</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>科技论文的作用</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 记录科研成果</li><li><b>B.</b> 总结科研成果</li><li><b>C.</b> 促进科研工作的完成</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">记录科研成果</span></li><li><span class="hw-key">B.</span><span class="hw-val">总结科研成果</span></li><li><span class="hw-key">C.</span><span class="hw-val">促进科研工作的完成</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-28">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">28</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>科技论文的主要读者</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 科研工作者</li><li><b>B.</b> 同行</li><li><b>C.</b> 专家</li><li><b>D.</b> 在校学生</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">科研工作者</span></li><li><span class="hw-key">B.</span><span class="hw-val">同行</span></li><li><span class="hw-key">C.</span><span class="hw-val">专家</span></li><li><span class="hw-key">D.</span><span class="hw-val">在校学生</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-29">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">29</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>科技论文的规范性包括</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 论文行文符合要求</li><li><b>B.</b> 论文中图符合要求</li><li><b>C.</b> 论文中的表符合要求</li><li><b>D.</b> 论文中单位、数字符合要求</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">论文行文符合要求</span></li><li><span class="hw-key">B.</span><span class="hw-val">论文中图符合要求</span></li><li><span class="hw-key">C.</span><span class="hw-val">论文中的表符合要求</span></li><li><span class="hw-key">D.</span><span class="hw-val">论文中单位、数字符合要求</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-30">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">30</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>科技论文写作是科研工作者必须具备的科研素养，科研工作者可以从哪几方面提高科技论文写作水平</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 信息检索</li><li><b>B.</b> 写作能力</li><li><b>C.</b> 数据分析能力</li><li><b>D.</b> 科研绘图能力</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">信息检索</span></li><li><span class="hw-key">B.</span><span class="hw-val">写作能力</span></li><li><span class="hw-key">C.</span><span class="hw-val">数据分析能力</span></li><li><span class="hw-key">D.</span><span class="hw-val">科研绘图能力</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-31">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">31</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>引言的作用是梳理论文演技领域，突出研究问题，所引用的参考文献要求是</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 引用经典理论</li><li><b>B.</b> 引用最新研究进展</li><li><b>C.</b> 引用该学科方向重点期刊发表的论文</li><li><b>D.</b> 不用关注其他因素，只要是最新的论文即可。</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">引用经典理论</span></li><li><span class="hw-key">B.</span><span class="hw-val">引用最新研究进展</span></li><li><span class="hw-key">C.</span><span class="hw-val">引用该学科方向重点期刊发表的论文</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-32">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">32</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>量分为哪两类</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 标量</li><li><b>B.</b> 矢量</li><li><b>C.</b> 变量</li><li><b>D.</b> 常量</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">标量</span></li><li><span class="hw-key">B.</span><span class="hw-val">矢量</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-33">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">33</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>哪些量用黑斜体表示</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 矩阵</li><li><b>B.</b> 矢量</li><li><b>C.</b> 向量</li><li><b>D.</b> 变量</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">矩阵</span></li><li><span class="hw-key">B.</span><span class="hw-val">矢量</span></li><li><span class="hw-key">C.</span><span class="hw-val">向量</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-34">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">34</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>投稿信息包括</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 投稿渠道</li><li><b>B.</b> 投稿须知或投稿指南</li><li><b>C.</b> 期刊的收稿范围</li><li><b>D.</b> 审稿周期</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">投稿渠道</span></li><li><span class="hw-key">B.</span><span class="hw-val">投稿须知或投稿指南</span></li><li><span class="hw-key">C.</span><span class="hw-val">期刊的收稿范围</span></li><li><span class="hw-key">D.</span><span class="hw-val">审稿周期</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-35">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">35</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>编辑加工的工作内容包括以下哪些进行标准化和和规范化的加工。</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 文章组织的逻辑关系</li><li><b>B.</b> 文字内容</li><li><b>C.</b> 符号，数字</li><li><b>D.</b> 术语</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">文章组织的逻辑关系</span></li><li><span class="hw-key">B.</span><span class="hw-val">文字内容</span></li><li><span class="hw-key">C.</span><span class="hw-val">符号，数字</span></li><li><span class="hw-key">D.</span><span class="hw-val">术语</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-36">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">36</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>大学生需要遵守的道德规范中国家法律法规包括</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 著作权法</li><li><b>B.</b> 专利法</li><li><b>C.</b> 计算机软件保护条例</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">著作权法</span></li><li><span class="hw-key">B.</span><span class="hw-val">专利法</span></li><li><span class="hw-key">C.</span><span class="hw-val">计算机软件保护条例</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-37">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">37</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>标题的作用</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 尽量简单，字数越少越好</li><li><b>B.</b> 明确表明研究方向</li><li><b>C.</b> 吸引读者的阅读兴趣</li><li><b>D.</b> 题目覆盖的范围越大越好</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">B.</span><span class="hw-val">明确表明研究方向</span></li><li><span class="hw-key">C.</span><span class="hw-val">吸引读者的阅读兴趣</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-38">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">38</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>摘要的书写中包括以下哪些内容</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 研究目的</li><li><b>B.</b> 实验方法</li><li><b>C.</b> 主要结果</li><li><b>D.</b> 结论</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">研究目的</span></li><li><span class="hw-key">B.</span><span class="hw-val">实验方法</span></li><li><span class="hw-key">C.</span><span class="hw-val">主要结果</span></li><li><span class="hw-key">D.</span><span class="hw-val">结论</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-39">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">39</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>以下哪些选项是变量</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> d</li><li><b>B.</b> V</li><li><b>C.</b> 100</li><li><b>D.</b> vt</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">d</span></li><li><span class="hw-key">B.</span><span class="hw-val">V</span></li><li><span class="hw-key">C.</span><span class="hw-val">100</span></li><li><span class="hw-key">D.</span><span class="hw-val">vt</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-40">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">40</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>科技论文中图、表的基本要求是</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 自明性</li><li><b>B.</b> 直观性</li><li><b>C.</b> 清晰</li><li><b>D.</b> 简洁</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">自明性</span></li><li><span class="hw-key">B.</span><span class="hw-val">直观性</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-41">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">41</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>图、表在科技论文中的书写原则有哪些？</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 先文后图原则</li><li><b>B.</b> 要素齐全原则</li><li><b>C.</b> 一致性原则</li><li><b>D.</b> 数据正确原则</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">先文后图原则</span></li><li><span class="hw-key">B.</span><span class="hw-val">要素齐全原则</span></li><li><span class="hw-key">C.</span><span class="hw-val">一致性原则</span></li><li><span class="hw-key">D.</span><span class="hw-val">数据正确原则</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-42">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">42</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>获取投稿信息的途径</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 期刊网站</li><li><b>B.</b> 期刊公众号</li><li><b>C.</b> 行业会议</li><li><b>D.</b> 电子资源数据库</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">期刊网站</span></li><li><span class="hw-key">B.</span><span class="hw-val">期刊公众号</span></li><li><span class="hw-key">C.</span><span class="hw-val">行业会议</span></li><li><span class="hw-key">D.</span><span class="hw-val">电子资源数据库</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-43">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">43</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>外审退修意见包括</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 专家审稿意见</li><li><b>B.</b> 编辑部意见</li><li><b>C.</b> 初审编辑意见</li><li><b>D.</b> 编辑部主任意见</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">专家审稿意见</span></li><li><span class="hw-key">B.</span><span class="hw-val">编辑部意见</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-44">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">44</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>作者在投稿前需要熟悉所投期刊的哪些规则。</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 审稿流程</li><li><b>B.</b> 投稿模板</li><li><b>C.</b> 格式规范</li><li><b>D.</b> 图、表要求</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">审稿流程</span></li><li><span class="hw-key">B.</span><span class="hw-val">投稿模板</span></li><li><span class="hw-key">C.</span><span class="hw-val">格式规范</span></li><li><span class="hw-key">D.</span><span class="hw-val">图、表要求</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-45">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">45</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>决定论文是否会被编辑部录用的因素有哪些。</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 论文的创新性</li><li><b>B.</b> 论文的规范书写</li><li><b>C.</b> 数据的准确</li><li><b>D.</b> 论文结构的合理性</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">论文的创新性</span></li><li><span class="hw-key">B.</span><span class="hw-val">论文的规范书写</span></li><li><span class="hw-key">C.</span><span class="hw-val">数据的准确</span></li><li><span class="hw-key">D.</span><span class="hw-val">论文结构的合理性</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-46">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">46</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>如何引用参考文献</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 针对重点文献单独述评</li><li><b>B.</b> 照抄原文才是尊重他人研究成果</li><li><b>C.</b> 相似的研究方法可以分类述评</li><li><b>D.</b> 为了突出本人研究成果，可以任意修改参考文献</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">针对重点文献单独述评</span></li><li><span class="hw-key">B.</span><span class="hw-val">照抄原文才是尊重他人研究成果</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-47">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">47</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>大学生论文写作的不规范行为主要表现在</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 抄袭严重</li><li><b>B.</b> 伪造数据</li><li><b>C.</b> 随意标注参考文献</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">抄袭严重</span></li><li><span class="hw-key">B.</span><span class="hw-val">伪造数据</span></li><li><span class="hw-key">C.</span><span class="hw-val">随意标注参考文献</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-48">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">48</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p><span style="font-size:14px;font-family:宋体">期刊作者学术不端行为主要有：</span></p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 剽窃、伪造、篡改</li><li><b>B.</b> 不当署名、一稿多投</li><li><b>C.</b> 重复发表、违背科研伦理和其他学术不端行为等。</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">剽窃、伪造、篡改</span></li><li><span class="hw-key">B.</span><span class="hw-val">不当署名、一稿多投</span></li><li><span class="hw-key">C.</span><span class="hw-val">重复发表、违背科研伦理和其他学术不端行为等。</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-49">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">49</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>标题的要求</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 简单明了</li><li><b>B.</b> 表述清晰</li><li><b>C.</b> 尽量使用简写</li><li><b>D.</b> 字数越少越好</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">简单明了</span></li><li><span class="hw-key">B.</span><span class="hw-val">表述清晰</span></li></ul></div>
+      </article>
+      <article class="hw-q" id="q-90178798-50">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">50</span>
+          <span class="hw-q-type">多选题</span>
+          <span class="hw-q-score">2 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p>按照《学术出版规范—期刊学术不端行为界定（CY/T 174-2019）》，学术不端按照对象不同可分为</p></div></div>
+        <ol class="hw-q-opts"><li><b>A.</b> 论文作者学术不端行为</li><li><b>B.</b> 审稿专家学术不端行为</li><li><b>C.</b> 编辑者学术不端行为</li></ol>
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：</div><ul class="hw-q-ans-list"><li><span class="hw-key">A.</span><span class="hw-val">论文作者学术不端行为</span></li><li><span class="hw-key">B.</span><span class="hw-val">审稿专家学术不端行为</span></li><li><span class="hw-key">C.</span><span class="hw-val">编辑者学术不端行为</span></li></ul></div>
+      </article>
+<h2 id="hw-90186373">研究生结课报告提交要求</h2>
+      <article class="hw-q" id="q-90186373-1">
+        <h3 class="hw-q-head">
+          <span class="hw-q-num">1</span>
+          <span class="hw-q-type">主观题</span>
+          <span class="hw-q-score">15 分</span>
+        </h3>
+        <div class="hw-q-body"><div class="custom_ueditor_cn_body"><p><span style=";font-family:宋体;font-size:14px"><span style="font-family:Calibri">1</span><span style="font-family:宋体">、请所有同学通过雨课堂提交电子版结课报告。</span></span></p><p><span style=";font-family:宋体;font-size:14px"><span style="font-family:Calibri">2</span><span style="font-family:宋体">、结课报告字数不少于</span><span style="font-family:Calibri">1500</span><span style="font-family:宋体">字。</span></span></p><p><span style=";font-family:宋体;font-size:14px"><span style="font-family:Calibri">3</span><span style="font-family:宋体">、报告提交截至时间为</span><span style="font-family:Calibri">202</span></span><span style=";font-family:宋体;font-size:14px"><span style="font-family:Calibri">6</span></span><span style=";font-family:宋体;font-size:14px"><span style="font-family:宋体">年</span><span style="font-family:Calibri">12</span><span style="font-family:宋体">月</span><span style="font-family:Calibri">25</span><span style="font-family:宋体">日</span><span style="font-family:Calibri">23</span><span style="font-family:宋体">：</span><span style="font-family:Calibri">59</span><span style="font-family:宋体">。</span></span></p><p><span style=";font-family:宋体;font-size:14px"><span style="font-family:Calibri">4</span><span style="font-family:宋体">、结课报告务必以附件形式提交，写好姓名学号等信息，以方便留存。</span></span></p><p><span style=";font-family:宋体;font-size:14px"><span style="font-family:Calibri">5</span><span style="font-family:宋体">、为确保上传成功，建议大家在电脑端谷歌浏览器访问网址上传，网址不要有误，网址：</span><span style="font-family:Calibri">https://yjsncepu.yuketang.cn/</span></span></p><p><span style=";font-family:宋体;font-size:14px"><span style="font-family:Calibri">6</span><span style="font-family:宋体">、结课报告为两种形式任选其一。</span></span></p><p><span style=";font-family:宋体;font-size:14px"><span style="font-family:Calibri">1</span><span style="font-family:宋体">）结合某一课题，综合运用所学数据库，进行文献检索，完成检索报告。</span></span></p><p><span style=";font-family:宋体;font-size:14px"><span style="font-family:Calibri">2</span><span style="font-family:宋体">）结合所学专业，通过数据库检索，完成某一课题的文献综述。</span></span></p><p><span style=";font-family:宋体;font-size:14px">&nbsp;</span></p><p><br /></p></div></div>
+        
+        <div class="hw-q-ans"><div class="hw-q-ans-label">正确答案：<span class="hw-q-none">（无客观答案）</span></div></div>
+      </article>
+</main>
+<script>
+(function(){
+  var KEY='ykt-hw-theme', root=document.documentElement, btn=document.getElementById('hw-theme-btn');
+  var L={auto:'◐ 自动',light:'● 浅色',dark:'● 深色'};
+  var get=function(){ return root.dataset.theme in L ? root.dataset.theme : 'auto' };
+  btn.textContent=L[get()];
+  btn.onclick=function(){ var o=['auto','light','dark']; var v=o[(o.indexOf(get())+1)%3];
+    root.dataset.theme=v; btn.textContent=L[v]; try{localStorage.setItem(KEY,v)}catch(e){} };
+
+  var toc=document.getElementById('hw-toc');
+  document.getElementById('hw-toc-btn').onclick=function(){ document.body.classList.toggle('toc-open') };
+
+  // 滚动高亮：命中当前视口顶部之上最近的一道题，并展开它所在的作业
+  var links={}, items=[];
+  Array.prototype.forEach.call(toc.querySelectorAll('a[href^="#"]'), function(a){
+    links[a.getAttribute('href').slice(1)]=a;
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('.hw-doc h2[id], .hw-doc .hw-q[id]'), function(el){
+    if(links[el.id]) items.push(el);
+  });
+  var cur=null, autoOpened=null;
+  function spy(){
+    var pick=null;
+    for(var i=0;i<items.length;i++){ if(items[i].getBoundingClientRect().top<=140) pick=items[i]; else break }
+    if(pick===cur) return;
+    if(cur) links[cur.id].classList.remove('on');
+    cur=pick;
+    if(!cur){ if(autoOpened){ autoOpened.open=false; autoOpened=null; } return; }
+    var a=links[cur.id];
+    a.classList.add('on');
+    // 只展开当前题所在的一组，并收回上一组由本脚本展开的；用户手动点开的不去关它
+    var d=a.closest('details');
+    if(d && !d.open){
+      if(autoOpened && autoOpened!==d) autoOpened.open=false;
+      d.open=true; autoOpened=d;
+    } else if(!d && autoOpened){
+      autoOpened.open=false; autoOpened=null;
+    }
+    var box=toc.getBoundingClientRect(), r=a.getBoundingClientRect();
+    if(r.top<box.top+8 || r.bottom>box.bottom-8) a.scrollIntoView({block:'nearest'});
+  }
+  addEventListener('scroll',spy,{passive:true}); addEventListener('resize',spy); spy();
+})();</script>
+</body></html>
