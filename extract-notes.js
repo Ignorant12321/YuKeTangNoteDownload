@@ -3,7 +3,8 @@
  *
  * 步骤：
  *   1. 登录雨课堂，打开任意一节课程视频页，形如
- *      https://www.yuketang.cn/ai-workspace/lms-graph/<classroom_id>/video/<leaf_id>?is_chapter=1
+ *      https://<雨课堂域名>/ai-workspace/lms-graph/<classroom_id>/video/<leaf_id>?is_chapter=1
+ *      （www.yuketang.cn 或学校专属的 xxx.yuketang.cn 都行，脚本用的是相对路径）
  *   2. F12 -> Console，把本文件内容整段粘贴进去，回车，右下角弹出面板。
  *   3. 勾选要提取的小节（支持搜索），选导出格式，点「开始提取」。
  *
@@ -32,16 +33,41 @@
     readCookie('classroom_id') ||
     localStorage.getItem('classroomId');
 
-  // 雨课堂的 c27 / mooc-api 接口要求带 xtbz 头，值就存在同名 Cookie 里
-  const headers = { xtbz: readCookie('xtbz') || 'ykt' };
+  // 雨课堂自己的请求带的是这一组头：Xt-Agent / classroom-id / university-id / uv-id / xtbz。
+  // www 上只带 xtbz 也放行，但学校专属域名（如 yjsncepu.yuketang.cn）会校验，
+  // 缺了返回 error_code 80019（前端把它当 403 处理）。这些值都能从同名 Cookie 里取到。
+  const buildHeaders = () => {
+    const h = {
+      Accept: 'application/json, text/plain, */*',
+      'Xt-Agent': 'web',
+      'classroom-id': String(cid),
+      'university-id': readCookie('university_id'),
+      'uv-id': readCookie('uv_id') || readCookie('university_id'),
+      xtbz: readCookie('xtbz') || 'ykt',
+    };
+    const csrf = readCookie('csrftoken');
+    if (csrf) h['X-CSRFToken'] = csrf;
+    Object.keys(h).forEach((k) => {
+      if (h[k] === '' || h[k] === 'undefined') delete h[k];
+    });
+    return h;
+  };
+  const headers = buildHeaders();
 
   const getJSON = async (url) => {
     const res = await fetch(url, { credentials: 'include', headers });
-    if (!res.ok) throw new Error(url + ' → HTTP ' + res.status);
+    if (!res.ok) {
+      const text = await res.text().catch(() => '');
+      throw new Error(url + ' → HTTP ' + res.status + (text ? '：' + text.slice(0, 300) : ''));
+    }
     const body = await res.json();
     if (body && body.success === false) throw new Error(url + ' → ' + (body.msg || '请求失败'));
     return body;
   };
+
+  // 目录接口只需要 cid + classroom_id；show_unpublished=0 跟页面保持一致，
+  // 请求头才是不同部署的关键差异，见上面的 buildHeaders
+  const chapterUrl = () => `/mooc-api/v1/lms/learn/course/chapter?cid=${cid}&classroom_id=${cid}&show_unpublished=0`;
 
   const fmt = (ms) => {
     const s = Math.max(0, Math.floor(Number(ms) / 1000));
@@ -66,7 +92,7 @@
   // 页面目录里「节」有两种形态：下面挂多个视频，或节自身就是视频（第 3~5 章）。
   // depth 跟 TOC 的实际缩进对齐，作业/考试按 leaf_type 过滤掉。
   async function loadTree() {
-    const data = (await getJSON(`/mooc-api/v1/lms/learn/course/chapter?cid=${cid}&classroom_id=${cid}`)).data;
+    const data = (await getJSON(chapterUrl())).data;
     const leaves = [];
     for (const ch of data.course_chapter || []) {
       for (const sec of ch.section_leaf_list || []) {

@@ -26,14 +26,41 @@
     localStorage.getItem('classroomId');
   if (!cid) throw new Error('识别不到 classroom_id，请在课程页面运行本脚本');
 
-  const headers = { xtbz: readCookie('xtbz') || 'ykt' };
+  // 雨课堂自己的请求带的是这一组头：Xt-Agent / classroom-id / university-id / uv-id / xtbz。
+  // www 上只带 xtbz 也放行，但学校专属域名（如 yjsncepu.yuketang.cn）会校验，
+  // 缺了返回 error_code 80019（前端把它当 403 处理）。这些值都能从同名 Cookie 里取到。
+  const buildHeaders = () => {
+    const h = {
+      Accept: 'application/json, text/plain, */*',
+      'Xt-Agent': 'web',
+      'classroom-id': String(cid),
+      'university-id': readCookie('university_id'),
+      'uv-id': readCookie('uv_id') || readCookie('university_id'),
+      xtbz: readCookie('xtbz') || 'ykt',
+    };
+    const csrf = readCookie('csrftoken');
+    if (csrf) h['X-CSRFToken'] = csrf;
+    Object.keys(h).forEach((k) => {
+      if (h[k] === '' || h[k] === 'undefined') delete h[k];
+    });
+    return h;
+  };
+  const headers = buildHeaders();
+
   const getJSON = async (url) => {
     const res = await fetch(url, { credentials: 'include', headers });
-    if (!res.ok) throw new Error(url + ' → HTTP ' + res.status);
+    if (!res.ok) {
+      const text = await res.text().catch(() => '');
+      throw new Error(url + ' → HTTP ' + res.status + (text ? '：' + text.slice(0, 300) : ''));
+    }
     const body = await res.json();
     if (body && body.success === false) throw new Error(url + ' → ' + (body.msg || '请求失败'));
     return body;
   };
+
+  // 目录接口只需要 cid + classroom_id；show_unpublished=0 跟页面保持一致，
+  // 请求头才是不同部署的关键差异，见上面的 buildHeaders
+  const chapterUrl = () => `/mooc-api/v1/lms/learn/course/chapter?cid=${cid}&classroom_id=${cid}&show_unpublished=0`;
 
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
@@ -49,7 +76,7 @@
 
   /* ---------- 收集作业小节 ---------- */
 
-  const tree = (await getJSON(`/mooc-api/v1/lms/learn/course/chapter?cid=${cid}&classroom_id=${cid}`)).data;
+  const tree = (await getJSON(chapterUrl())).data;
   const chapterNum = (name) => Number(((String(name).match(/第\s*(\d+)\s*章/) || [])[1]) || null);
 
   const jobs = [];
